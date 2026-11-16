@@ -1,0 +1,214 @@
+{
+  "present": "replace",
+  "screen": {
+    "v": 1,
+    "id": "main",
+    "title": "Devices",
+    "tab": {
+      "title": "Devices",
+      "symbol": "iphone"
+    },
+    "refresh": 10,
+    "sections": [
+      {
+        "id": "demo",
+        "card": "none",
+        "parts": [
+          {
+            "type": "text",
+            "id": "demoNote",
+            "text": "Sample devices. Nothing here changes a real device, and the list resets by itself.",
+            "style": "subhead",
+            "symbol": "info.circle"
+          }
+        ]
+      },
+      {
+        "id": "invite",
+        "title": "Invite",
+        "card": "glass",
+        "parts": [
+          {
+            "type": "field",
+            "id": "inviteUser",
+            "placeholder": "Username",
+            "label": "Username",
+            "value": "",
+            "paste": false,
+            "keyboard": "text",
+            "returnKey": "go"
+          },
+          {
+            "type": "choice",
+            "id": "invitePlace",
+            "gap": 12,
+            "options": [
+              {
+                "id": "home",
+                "label": "Home network"
+              },
+              {
+                "id": "address",
+                "label": "One address"
+              },
+              {
+                "id": "anywhere",
+                "label": "Anywhere"
+              }
+            ],
+            "value": "home",
+            "action": {
+              "id": "place",
+              "sends": [
+                "invitePlace",
+                "inviteUser",
+                "inviteAddress"
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "id": "invitePlaceNote",
+            "gap": 8,
+            "text": "The code works only from your home network.",
+            "style": "caption"
+          },
+          {
+            "type": "button",
+            "id": "inviteSend",
+            "gap": 12,
+            "label": "Send invite",
+            "style": "prominent",
+            "action": {
+              "id": "invite",
+              "sends": [
+                "inviteUser",
+                "invitePlace",
+                "inviteAddress"
+              ]
+            },
+            "needs": [
+              "inviteUser"
+            ]
+          },
+          {
+            "type": "text",
+            "id": "inviteNote",
+            "gap": 12,
+            "text": "This demo sends no email: the code shows here and under Invites waiting. On a real server it goes by email to the address Navidrome holds for the user, and works once, within 24 hours.",
+            "style": "caption"
+          }
+        ]
+      },
+      {
+        "id": "invites",
+        "title": "Invites waiting",
+        "gap": 28,
+        "card": "glass",
+        "parts": [
+          {
+            "type": "row",
+            "id": "invite-riley",
+            "title": "riley",
+            "lines": 2,
+            "subtitle": "Home network · code K7QM-2XPA · until 15 Nov, 14:00",
+            "button": {
+              "id": "cancel-riley",
+              "label": "Cancel",
+              "style": "bordered",
+              "action": {
+                "id": "cancel:riley"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "pending",
+        "title": "Waiting for approval",
+        "gap": 28,
+        "card": "none",
+        "parts": [
+          {
+            "type": "text",
+            "id": "pendingEmpty",
+            "text": "No devices waiting.",
+            "style": "secondary",
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "id": "approved",
+        "title": "Approved",
+        "gap": 28,
+        "card": "glass",
+        "parts": [
+          {
+            "type": "row",
+            "id": "device-sample-1",
+            "title": "Alex's iPhone",
+            "lines": 2,
+            "subtitle": "alex · last seen 14 Nov · until 21 Nov",
+            "button": {
+              "id": "revoke-sample-1",
+              "label": "Revoke",
+              "style": "bordered",
+              "action": {
+                "id": "revoke:sample-1"
+              }
+            }
+          },
+          {
+            "type": "row",
+            "id": "device-sample-2",
+            "title": "Sam's iPhone",
+            "lines": 2,
+            "subtitle": "sam · last seen 14 Nov · until 18 Nov",
+            "button": {
+              "id": "revoke-sample-2",
+              "label": "Revoke",
+              "style": "bordered",
+              "action": {
+                "id": "revoke:sample-2"
+              }
+            }
+          },
+          {
+            "type": "row",
+            "id": "device-sample-3",
+            "title": "Jordan's iPad",
+            "lines": 2,
+            "subtitle": "jordan · last seen 13 Nov · until 16 Nov",
+            "button": {
+              "id": "revoke-sample-3",
+              "label": "Revoke",
+              "style": "bordered",
+              "action": {
+                "id": "revoke:sample-3"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "reset",
+        "gap": 28,
+        "card": "none",
+        "parts": [
+          {
+            "type": "button",
+            "id": "reset",
+            "label": "Reset sample devices",
+            "symbol": "arrow.counterclockwise",
+            "style": "bordered",
+            "action": {
+              "id": "reset"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "toast": "Approved Alex's iPhone."
+}

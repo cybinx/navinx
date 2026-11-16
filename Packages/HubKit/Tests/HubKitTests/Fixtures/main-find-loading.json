@@ -1,0 +1,122 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Add",
+  "tab": {
+    "title": "Add",
+    "symbol": "dot.radiowaves.left.and.right"
+  },
+  "refresh": 1,
+  "sections": [
+    {
+      "id": "mode",
+      "card": "none",
+      "parts": [
+        {
+          "type": "choice",
+          "id": "mode",
+          "options": [
+            {
+              "id": "paste",
+              "label": "Video"
+            },
+            {
+              "id": "find",
+              "label": "Catalog"
+            }
+          ],
+          "value": "find",
+          "action": {
+            "id": "mode",
+            "sends": [
+              "mode"
+            ]
+          },
+          "large": true
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "field",
+          "id": "q",
+          "placeholder": "Search albums",
+          "label": "Search",
+          "value": "",
+          "paste": false,
+          "keyboard": "text",
+          "returnKey": "search",
+          "submit": {
+            "id": "search",
+            "sends": [
+              "q"
+            ]
+          },
+          "clear": {
+            "id": "clear"
+          }
+        },
+        {
+          "type": "choice",
+          "id": "searchMode",
+          "gap": 12,
+          "options": [
+            {
+              "id": "albums",
+              "label": "Albums"
+            },
+            {
+              "id": "artists",
+              "label": "Artists"
+            }
+          ],
+          "value": "albums",
+          "action": {
+            "id": "searchMode",
+            "sends": [
+              "searchMode"
+            ]
+          },
+          "button": {
+            "id": "search",
+            "label": "Search",
+            "style": "prominent",
+            "action": {
+              "id": "search",
+              "sends": [
+                "q"
+              ]
+            },
+            "needs": [
+              "q"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "requests",
+      "title": "Requests",
+      "button": {
+        "id": "requestsRefresh",
+        "label": "Refresh requests",
+        "symbol": "arrow.clockwise",
+        "style": "plain",
+        "action": {
+          "id": "requests"
+        }
+      },
+      "gap": 28,
+      "card": "none",
+      "parts": [
+        {
+          "type": "progress",
+          "id": "requestsLoading"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Merged with the keys Xcode generates (GENERATE_INFOPLIST_FILE = YES). It lives outside the
+	     synchronized Navinx/ folder so it isn't also copied into the app as a resource. -->
+
+	<!-- Plain http:// servers: the address is the user's own server, often http at home (C2). -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+
+	<!-- Asked when the server is on the home network (C2). -->
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Navinx uses the local network to connect to your music server.</string>
+
+	<!-- Only the system's own encryption (HTTPS): no export paperwork at each upload. -->
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+
+	<!-- Music keeps playing in the background and on the lock screen (C4). -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
+
+	<!-- Navinx's links (C39): only pages open (album, artist, playlist, search, favorites, downloads). -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.cybinx.navinx.app</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>navinx</string>
+			</array>
+		</dict>
+	</array>
+
+	<!-- How the name is said, for Siri's phrases (the user, D146: "NAV-in-ex"). -->
+	<key>INAlternativeAppNames</key>
+	<array>
+		<dict>
+			<key>INAlternativeAppName</key>
+			<string>Navinx</string>
+			<key>INAlternativeAppNamePronunciationHint</key>
+			<string>NAV in ex</string>
+		</dict>
+	</array>
+
+	<!-- The alternate icons (C52) for an iPad running this iPhone-only app: iOS reads the `~ipad`
+	     icons there, and the asset catalog writes the alternates only into `CFBundleIcons` for an
+	     iPhone-only target, so without these Settings → Display → App Icon fails on an iPad. The
+	     names must match `ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES` and `AppIconChoice`. -->
+	<key>CFBundleIcons~ipad</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>CFBundleIconName</key>
+			<string>AppIcon</string>
+			<key>CFBundleIconFiles</key>
+			<array>
+				<string>AppIcon60x60</string>
+				<string>AppIcon76x76</string>
+			</array>
+		</dict>
+		<key>CFBundleAlternateIcons</key>
+		<dict>
+			<key>AppIcon-Violet</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon-Violet</string>
+			</dict>
+			<key>AppIcon-Teal</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon-Teal</string>
+			</dict>
+			<key>AppIcon-Amber</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon-Amber</string>
+			</dict>
+			<key>AppIcon-Graphite</key>
+			<dict>
+				<key>CFBundleIconName</key>
+				<string>AppIcon-Graphite</string>
+			</dict>
+		</dict>
+	</dict>
+
+	<!-- A long press of the icon (C39, D146); the types are `QuickAction`'s. -->
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>navinx.search</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Search</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>magnifyingglass</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>navinx.favorites</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Favorites</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>heart</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>navinx.shuffle-library</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Shuffle Library</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>shuffle</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>navinx.downloads</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Downloads</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>arrow.down.circle</string>
+		</dict>
+	</array>
+</dict>
+</plist>

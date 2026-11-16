@@ -1,0 +1,115 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "artist": {
+      "id": "47J4kLtntqT8Xa9X4NVbnv",
+      "name": "Cochise",
+      "coverArt": "ar-47J4kLtntqT8Xa9X4NVbnv_a339949c6ca9a8b0",
+      "albumCount": 3,
+      "artistImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=600",
+      "musicBrainzId": "",
+      "sortName": "cochise",
+      "roles": [
+        "albumartist",
+        "artist",
+        "maincredit"
+      ],
+      "album": [
+        {
+          "id": "19uRfojcKGj90TIs32aTE0",
+          "name": "IMGEEKED, IM HIGH, IM FCKED UP",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-19uRfojcKGj90TIs32aTE0_7761e40f54d8e21e",
+          "songCount": 1,
+          "duration": 150,
+          "created": "2026-11-04T18:15:11.474813951Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "imgeeked, im high, im fcked up",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "7z9JVZQ2SmdBVOUKaFUALW",
+          "name": "PIRU",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-7z9JVZQ2SmdBVOUKaFUALW_8fd15f078481ff08",
+          "songCount": 1,
+          "duration": 145,
+          "created": "2026-11-04T18:26:03.869055197Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "piru",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "5tDNdwIQTVclZb9ASelEZJ",
+          "name": "me",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-5tDNdwIQTVclZb9ASelEZJ_898ad586020c6801",
+          "songCount": 14,
+          "duration": 2140,
+          "created": "2026-11-02T22:57:46.101408971Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "me",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        }
+      ]
+    }
+  }
+}

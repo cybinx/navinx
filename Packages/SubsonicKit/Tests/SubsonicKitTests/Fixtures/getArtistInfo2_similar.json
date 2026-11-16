@@ -1,0 +1,103 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "artistInfo2": {
+      "biography": "A remarkably creative force who started out as a comedy writer, Donald Glover starred in the cult sitcom Community, created Golden Globe-winning drama series Atlanta, and took on the iconic Star Wars role of Lando Calrissian, yet has still found the time to conquer the hip-hop world under his musical alias Childish Gambino. Born on 25 September 1983 in Edwards, California and raised as a Jehovah's Witness in the suburbs of Atlanta, he graduated from the Tisch School of Arts before self-releasing mixtapes of music and comedic raps in 2008. Given his pseudonym by a Wu-Tang Clan name generator, he developed his rap skills on early independent albums Poindexter and I Am Just a Rapper, guesting on songs by Jamie xx and Chance the Rapper before really making his mark with 2011's Camp. Reaching number eleven in the US, the project documented his life story and personal anxieties, laced with snarky skits and quirks. Seen as part of the new breed of indie hip-hop artists, he crafted sound with Swedish composer Ludwig Goransson and featured ScHoolboy Q, Ghostface Killah and Beck on his mixtape Royalty before returning with the GRAMMY-nominated Because the Internet in 2013. Glover’s evolution as an artist broke new ground with Awaken, My Love! in 2016, on which he brought together his psychedelic rock, funk and R&B influences and showcased a soulful singing voice which drew comparisons with Prince, D'Angelo and Sly Stone. The album reached number five in the US and produced the gospel-pop hit single “Redbone”. After a brief hiatus, Glover landed another major hit in 2018’s “This is America”, which reflected on the enduring social issues plaguing the US today while invoking wry, meme-friendly dance moves. The song secured two GRAMMYs and topped charts internationally, and was swiftly followed by the two-track Summer Pack EP, which spawned the platinum-certified single “Feels Like Summer”. Keeping a low profile while quietly sharing the new songs “Algorhythm” and “All Night” with attendees of his 2019 tour, he eventually re-emerged in 2020 with his fourth studio album, 3.15.20; a cryptic, ambiguously titled effort featuring appearances from Ariana Grande, 21 Savage, and Jai Paul. Four years later, he announced the release of Atavista, a re-worked version of his LP 3/15/20, augmented with new guest appearances from Summer Walker and Young Nudy. He also returned with the original soundtrack to Bando Stone in the New World, which will work as the final Childish Gambino album. ",
+      "musicBrainzId": "7fb57fba-a6ef-44c2-abab-2fa3bdee607e",
+      "smallImageUrl": "http://<navidrome-host>/share/img/<token>?size=300",
+      "mediumImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+      "largeImageUrl": "http://<navidrome-host>/share/img/<token>?size=1200",
+      "similarArtist": [
+        {
+          "id": "3kS0ySISkYPwDV2Eoi6hFq",
+          "name": "Steve Lacy",
+          "coverArt": "ar-3kS0ySISkYPwDV2Eoi6hFq_3685f8f306a752ff",
+          "albumCount": 9,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "",
+          "sortName": "steve lacy",
+          "roles": [
+            "producer",
+            "maincredit",
+            "albumartist",
+            "artist",
+            "composer",
+            "lyricist"
+          ]
+        },
+        {
+          "id": "4g8QrpT5JOJpCIdOT3WSyV",
+          "name": "Chance the Rapper",
+          "coverArt": "ar-4g8QrpT5JOJpCIdOT3WSyV_8f588917cda888c4",
+          "albumCount": 0,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "373a4c98-a46b-48e4-86ec-f6ca65b4f438",
+          "sortName": "chance the rapper",
+          "roles": [
+            "artist",
+            "maincredit"
+          ]
+        },
+        {
+          "id": "62Hr26SBQDNpCWBBCO6cw5",
+          "name": "The Internet",
+          "coverArt": "ar-62Hr26SBQDNpCWBBCO6cw5_305c42e38fde1346",
+          "albumCount": 11,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "45804465-4271-4e6a-b881-ce668ef09530",
+          "sortName": "internet",
+          "roles": [
+            "albumartist",
+            "artist",
+            "producer",
+            "maincredit"
+          ]
+        },
+        {
+          "id": "3AaPziACvkykOKHRy2UE4d",
+          "name": "Thundercat",
+          "coverArt": "ar-3AaPziACvkykOKHRy2UE4d_466b7655049e4541",
+          "albumCount": 0,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "",
+          "sortName": "thundercat",
+          "roles": [
+            "artist",
+            "maincredit"
+          ]
+        },
+        {
+          "id": "5IjmcfcG0yt0ILfJfjxlBl",
+          "name": "Smino",
+          "coverArt": "ar-5IjmcfcG0yt0ILfJfjxlBl_2c717732f2eb728f",
+          "albumCount": 19,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "96800e05-9924-4321-859a-76e0d4750f2f",
+          "sortName": "smino",
+          "roles": [
+            "albumartist",
+            "artist",
+            "maincredit"
+          ]
+        },
+        {
+          "id": "0tXI6v8HhUwxPnwM6Mz4FV",
+          "name": "SZA",
+          "coverArt": "ar-0tXI6v8HhUwxPnwM6Mz4FV_d53faeb098cfca0d",
+          "albumCount": 0,
+          "artistImageUrl": "http://<navidrome-host>/share/img/<token>?size=600",
+          "musicBrainzId": "",
+          "sortName": "sza",
+          "roles": [
+            "maincredit",
+            "artist"
+          ]
+        }
+      ]
+    }
+  }
+}

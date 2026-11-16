@@ -1,0 +1,86 @@
+{
+  "about": "Shared test vectors for device approval (C44 the add-on, C45 the app): both sides must produce exactly these. Protocol: docs/log/C44.md, 'The protocol, v1'. The keys are throwaway P-256 public keys; no private key is kept anywhere.",
+  "words": [
+    {
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUk3uyfn7J9uqtnlwDoplIkDmJBjT1feXuJg4H5EUR8RRE8PpNrXScYZZDWMB89FosvhFghMjCh/YXtMRd/iSqA==",
+      "sha256": "d07ee09b416603c53b3b9a01d7abe6f4b0735395facf7d748a0303d38e1c671e",
+      "indexes": [
+        208,
+        126,
+        224,
+        155
+      ],
+      "words": [
+        "jade",
+        "sandal",
+        "banjo",
+        "fossil"
+      ]
+    },
+    {
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP9VgGpXYzMSDD+pfrgC6tklUzGqdfE49za1lNL2gFDKZLOBnbLfKl9KSk3sXwme3dOVezzFh0OD4wi0ptT82Jg==",
+      "sha256": "310dd3cd8883e78c7edc02839c7c5a89bb96194e94fa71ba128b42d8ac65178a",
+      "indexes": [
+        49,
+        13,
+        211,
+        205
+      ],
+      "words": [
+        "cherry",
+        "camel",
+        "violet",
+        "golden"
+      ]
+    },
+    {
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEBf+AMxMNUOd2h+NF4uGhLOCZoykZ/Qxef6uQriRWj60ASi83mfLM4k9YX3njzMQsTsXRolJmhAMULn8pv7LEXQ==",
+      "sha256": "db286bd608a1662e48e7c36789312a24b3fd2212e8a872618ebe6618d71f4419",
+      "indexes": [
+        219,
+        40,
+        107,
+        214
+      ],
+      "words": [
+        "august",
+        "apple",
+        "jacket",
+        "east"
+      ]
+    }
+  ],
+  "attestClientData": [
+    {
+      "code": "ABCD2345",
+      "username": "Demo",
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUk3uyfn7J9uqtnlwDoplIkDmJBjT1feXuJg4H5EUR8RRE8PpNrXScYZZDWMB89FosvhFghMjCh/YXtMRd/iSqA==",
+      "sha256": "b376b4b3c2ec359d9b5f37b5c67d04d691870cc3dadfb14ed9ca0d52dec9ccff"
+    },
+    {
+      "code": "ZYXW9876",
+      "username": "someone.else",
+      "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEP9VgGpXYzMSDD+pfrgC6tklUzGqdfE49za1lNL2gFDKZLOBnbLfKl9KSk3sXwme3dOVezzFh0OD4wi0ptT82Jg==",
+      "sha256": "737e51a0e9b7531274583495b5ecc750942f2ce133c10810cb76354c4637e74a"
+    }
+  ],
+  "statusMessage": [
+    {
+      "request": "7f3c2a10-0000-4000-8000-000000000001",
+      "time": 1794700000,
+      "messageBase64": "bmF2aW54LXN0YXR1cy12MQo3ZjNjMmExMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMDEKMTc5NDcwMDAwMA==",
+      "note": "the pending key signs these bytes with ECDSA P-256 over SHA-256; the signature is X9.62 DER, base64"
+    },
+    {
+      "request": "req-42",
+      "time": 1794700123,
+      "messageBase64": "bmF2aW54LXN0YXR1cy12MQpyZXEtNDIKMTc5NDcwMDEyMw==",
+      "note": "the pending key signs these bytes with ECDSA P-256 over SHA-256; the signature is X9.62 DER, base64"
+    }
+  ],
+  "csrReference": {
+    "csr": "MIHKMHMCAQAwETEPMA0GA1UEAwwGbmF2aW54MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUk3uyfn7J9uqtnlwDoplIkDmJBjT1feXuJg4H5EUR8RRE8PpNrXScYZZDWMB89FosvhFghMjCh/YXtMRd/iSqKAAMAoGCCqGSM49BAMCA0cAMEQCIBdiAQOmM/yM4TMbWt/trDYiroyu2a/w8OoPL6nc9Ev3AiAuLMR/k2PA2W5oWZcO4j+Ss29lbCldDep5SAhGXlDX+g==",
+    "spki": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEUk3uyfn7J9uqtnlwDoplIkDmJBjT1feXuJg4H5EUR8RRE8PpNrXScYZZDWMB89FosvhFghMjCh/YXtMRd/iSqA==",
+    "note": "PKCS#10 made by openssl (subject CN=navinx, P-256, SHA-256), self-signature valid; its public key is words[0]'s. The add-on must accept it; the app's own requests must read back the same way."
+  }
+}

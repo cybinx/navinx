@@ -1,0 +1,33 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "lyricsList": {
+      "structuredLyrics": [
+        {
+          "displayArtist": "Cochise",
+          "displayTitle": "Jackson",
+          "lang": "eng",
+          "offset": -100,
+          "synced": true,
+          "line": [
+            { "start": 0, "value": "First line" },
+            { "start": 2500, "value": "Second line" },
+            { "start": 5100, "value": "" }
+          ]
+        },
+        {
+          "lang": "xxx",
+          "synced": false,
+          "line": [
+            { "value": "First line" },
+            { "value": "Second line" }
+          ]
+        }
+      ]
+    }
+  }
+}

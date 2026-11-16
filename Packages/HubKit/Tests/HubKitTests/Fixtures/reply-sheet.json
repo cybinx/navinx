@@ -1,0 +1,74 @@
+{
+  "present": "sheet",
+  "screen": {
+    "v": 1,
+    "id": "request-23",
+    "title": "",
+    "sheetHeight": 300,
+    "sections": [
+      {
+        "id": "details",
+        "card": "none",
+        "parts": [
+          {
+            "type": "row",
+            "id": "details",
+            "title": "A Moon Shaped Pool",
+            "subtitle": "Radiohead",
+            "image": "https://images.example/a-moon-shaped-pool.png",
+            "imageSize": 72,
+            "note": "Failed",
+            "noteSymbol": "xmark.circle.fill",
+            "noteTint": "red"
+          },
+          {
+            "type": "text",
+            "id": "details-details",
+            "gap": 14,
+            "text": "No space",
+            "style": "subhead",
+            "label": "Details",
+            "labelWidth": 112
+          },
+          {
+            "type": "text",
+            "id": "details-indexer",
+            "gap": 6,
+            "text": "Example Indexer",
+            "style": "subhead",
+            "label": "Indexer",
+            "labelWidth": 112
+          },
+          {
+            "type": "text",
+            "id": "details-downloadclient",
+            "gap": 6,
+            "text": "Example Client",
+            "style": "subhead",
+            "label": "Download client",
+            "labelWidth": 112
+          },
+          {
+            "type": "text",
+            "id": "details-timeleft",
+            "gap": 6,
+            "text": "00:05:00",
+            "style": "subhead",
+            "label": "Time left",
+            "labelWidth": 112
+          },
+          {
+            "type": "button",
+            "id": "again",
+            "gap": 14,
+            "label": "Search again",
+            "style": "prominent",
+            "action": {
+              "id": "again:23"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

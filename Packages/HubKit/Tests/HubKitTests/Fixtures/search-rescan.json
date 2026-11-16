@@ -1,0 +1,53 @@
+{
+  "v": 1,
+  "id": "search",
+  "title": "",
+  "sections": [
+    {
+      "id": "find",
+      "title": "From Catalog",
+      "gap": 8,
+      "card": "none",
+      "parts": [
+        {
+          "type": "text",
+          "id": "findNote",
+          "gap": 2,
+          "text": "Not in your library yet? Request it and Catalog will download it.",
+          "style": "caption"
+        },
+        {
+          "type": "text",
+          "id": "findEmpty",
+          "gap": 8,
+          "text": "Catalog found nothing for \"nothing\".",
+          "style": "secondary"
+        }
+      ]
+    },
+    {
+      "id": "rescan",
+      "gap": 14,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "rescanHint",
+          "text": "Not in your library yet? Rescan if you just added it.",
+          "style": "subhead"
+        },
+        {
+          "type": "button",
+          "id": "rescan",
+          "gap": 10,
+          "label": "Rescan library",
+          "symbol": "arrow.triangle.2.circlepath",
+          "style": "prominent",
+          "action": {
+            "id": "rescan"
+          }
+        }
+      ]
+    }
+  ]
+}

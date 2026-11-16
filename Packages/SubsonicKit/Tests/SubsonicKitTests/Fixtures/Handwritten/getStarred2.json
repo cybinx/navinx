@@ -1,0 +1,20 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "starred2": {
+      "artist": [
+        { "id": "47J4kLtntqT8Xa9X4NVbnv", "name": "Cochise", "albumCount": 3, "starred": "2026-11-04T21:00:00Z" }
+      ],
+      "album": [
+        { "id": "5tDNdwIQTVclZb9ASelEZJ", "name": "me", "artist": "Cochise", "artistId": "47J4kLtntqT8Xa9X4NVbnv", "songCount": 14, "duration": 2140, "starred": "2026-11-04T21:00:00Z" }
+      ],
+      "song": [
+        { "id": "4OMCg3YvqzGiIManzyMXLw", "title": "Jackson", "album": "me", "artist": "Cochise", "duration": 120, "starred": "2026-11-04T21:00:00Z", "userRating": 4 }
+      ]
+    }
+  }
+}

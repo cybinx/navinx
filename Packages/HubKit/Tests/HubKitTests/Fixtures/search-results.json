@@ -1,0 +1,155 @@
+{
+  "v": 1,
+  "id": "search",
+  "title": "",
+  "sections": [
+    {
+      "id": "find",
+      "title": "From Catalog",
+      "gap": 8,
+      "card": "none",
+      "parts": [
+        {
+          "type": "text",
+          "id": "findNote",
+          "gap": 2,
+          "text": "Not in your library yet? Request it and Catalog will download it.",
+          "style": "caption"
+        },
+        {
+          "type": "row",
+          "id": "artist-fa-radiohead",
+          "title": "Radiohead",
+          "subtitle": "Artist · all albums",
+          "image": "https://images.example/radiohead.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fa-radiohead",
+            "label": "Request",
+            "style": "pill",
+            "action": {
+              "id": "request:artist:fa-radiohead"
+            }
+          },
+          "gap": 8
+        },
+        {
+          "type": "row",
+          "id": "artist-fa-tribute",
+          "title": "Radiohead Tribute",
+          "subtitle": "Artist · tribute band",
+          "image": "https://images.example/radiohead-tribute.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fa-tribute",
+            "label": "Request",
+            "style": "pill",
+            "action": {
+              "id": "request:artist:fa-tribute"
+            }
+          }
+        },
+        {
+          "type": "row",
+          "id": "album-fb-okcomputer",
+          "title": "OK Computer",
+          "subtitle": "Radiohead · 1997",
+          "image": "https://images.example/ok-computer.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fb-okcomputer",
+            "label": "In library",
+            "symbol": "checkmark",
+            "style": "pill",
+            "action": {
+              "id": "request:album:fb-okcomputer"
+            },
+            "enabled": false
+          }
+        },
+        {
+          "type": "row",
+          "id": "album-fb-kida",
+          "title": "Kid A",
+          "subtitle": "Radiohead · 2000",
+          "image": "https://images.example/kid-a.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fb-kida",
+            "label": "Monitored",
+            "symbol": "checkmark",
+            "style": "pill",
+            "action": {
+              "id": "request:album:fb-kida"
+            },
+            "enabled": false
+          }
+        },
+        {
+          "type": "row",
+          "id": "album-fb-inrainbows",
+          "title": "In Rainbows",
+          "subtitle": "Radiohead · 2007",
+          "image": "https://images.example/in-rainbows.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fb-inrainbows",
+            "label": "Monitored",
+            "symbol": "checkmark",
+            "style": "pill",
+            "action": {
+              "id": "request:album:fb-inrainbows"
+            },
+            "enabled": false
+          }
+        },
+        {
+          "type": "row",
+          "id": "album-fb-pablohoney",
+          "title": "Pablo Honey",
+          "subtitle": "Radiohead · 1993",
+          "image": "https://images.example/pablo-honey.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fb-pablohoney",
+            "label": "Request",
+            "style": "pill",
+            "action": {
+              "id": "request:album:fb-pablohoney"
+            }
+          }
+        },
+        {
+          "type": "row",
+          "id": "album-fb-mbv",
+          "title": "My Iron Lung",
+          "subtitle": "Radiohead · 1994",
+          "image": "https://images.example/my-iron-lung.png",
+          "imageSize": 92,
+          "lines": 2,
+          "button": {
+            "id": "request-fb-mbv",
+            "label": "Request",
+            "style": "pill",
+            "action": {
+              "id": "request:album:fb-mbv"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "id": "findRequested",
+          "gap": 6,
+          "text": "Requested. Follow the download in the Add tab (Catalog).",
+          "style": "caption"
+        }
+      ]
+    }
+  ]
+}

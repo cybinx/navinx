@@ -1,0 +1,92 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "song": {
+      "id": "4nMDIy4FC1Qj6S5Ioy0sg5",
+      "parent": "0zqiNrtSZKBrIPbW5Fp70T",
+      "isDir": false,
+      "title": "General",
+      "album": "The Never Story",
+      "artist": "J.I.D",
+      "track": 2,
+      "year": 2017,
+      "genre": "15 Hip-Pop",
+      "coverArt": "mf-4nMDIy4FC1Qj6S5Ioy0sg5_66806b908c94f99f",
+      "size": 23477614,
+      "contentType": "audio/flac",
+      "suffix": "flac",
+      "duration": 198,
+      "bitRate": 857,
+      "path": "JID/The Never Story/01-02 - General.flac",
+      "discNumber": 1,
+      "created": "2026-11-07T19:44:17.90557415Z",
+      "albumId": "0zqiNrtSZKBrIPbW5Fp70T",
+      "artistId": "3AdaBnEmUFhQs7ZzCcqGnG",
+      "type": "music",
+      "bpm": 0,
+      "comment": "",
+      "sortName": "general",
+      "mediaType": "song",
+      "musicBrainzId": "b7b5759a-fde1-45f5-89ec-3d08053bd2fd",
+      "isrc": [
+        "USUM71701757"
+      ],
+      "genres": [
+        {
+          "name": "15 Hip-Pop"
+        }
+      ],
+      "replayGain": {},
+      "channelCount": 2,
+      "samplingRate": 44100,
+      "bitDepth": 16,
+      "moods": [],
+      "artists": [
+        {
+          "id": "3AdaBnEmUFhQs7ZzCcqGnG",
+          "name": "J.I.D"
+        }
+      ],
+      "displayArtist": "J.I.D",
+      "albumArtists": [
+        {
+          "id": "6LWaVXnRB2w3vKXnrMr5Dd",
+          "name": "JID"
+        }
+      ],
+      "displayAlbumArtist": "JID",
+      "contributors": [
+        {
+          "role": "lyricist",
+          "artist": {
+            "id": "5of3gFyJB4RRDdTQoliix0",
+            "name": "Brandon Coleman"
+          }
+        },
+        {
+          "role": "lyricist",
+          "artist": {
+            "id": "2wo6PlSLxwh2kz4Qat61Fy",
+            "name": "Destin Route"
+          }
+        },
+        {
+          "role": "lyricist",
+          "artist": {
+            "id": "73obCjKlxytRjxxkuH8C1T",
+            "name": "Latrell Jaimz Boyd"
+          }
+        }
+      ],
+      "displayComposer": "",
+      "explicitStatus": "",
+      "groupings": [],
+      "works": [],
+      "movements": []
+    }
+  }
+}

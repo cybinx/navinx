@@ -1,0 +1,178 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Add",
+  "tab": {
+    "title": "Add",
+    "symbol": "dot.radiowaves.left.and.right"
+  },
+  "refresh": 1,
+  "sections": [
+    {
+      "id": "mode",
+      "card": "none",
+      "parts": [
+        {
+          "type": "choice",
+          "id": "mode",
+          "options": [
+            {
+              "id": "paste",
+              "label": "Video"
+            },
+            {
+              "id": "find",
+              "label": "Catalog"
+            }
+          ],
+          "value": "paste",
+          "action": {
+            "id": "mode",
+            "sends": [
+              "mode"
+            ]
+          },
+          "large": true
+        }
+      ]
+    },
+    {
+      "id": "link",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "field",
+          "id": "link",
+          "placeholder": "Paste a Video link",
+          "label": "Video link",
+          "value": "https://example.com/watch?v=one",
+          "paste": true,
+          "keyboard": "url",
+          "returnKey": "go",
+          "submit": {
+            "id": "check",
+            "sends": [
+              "link"
+            ]
+          },
+          "button": {
+            "id": "check",
+            "label": "Check",
+            "style": "prominent",
+            "action": {
+              "id": "check",
+              "sends": [
+                "link"
+              ]
+            },
+            "needs": [
+              "link"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "thumbnail",
+      "card": "none",
+      "parts": [
+        {
+          "type": "image",
+          "id": "thumbnail",
+          "url": "https://images.example/thumb.png",
+          "aspect": 1.7777777777777777,
+          "button": {
+            "id": "add",
+            "label": "Add to library",
+            "style": "pill",
+            "action": {
+              "id": "add"
+            },
+            "enabled": false,
+            "busy": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "preview",
+      "gap": 10,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "title",
+          "text": "Artist Name - Song Title (Official Video)",
+          "style": "headline",
+          "lines": 2
+        },
+        {
+          "type": "text",
+          "id": "channel",
+          "gap": 4,
+          "text": "Artist Name · 3:35",
+          "style": "secondary"
+        },
+        {
+          "type": "text",
+          "id": "artist",
+          "gap": 14,
+          "text": "Artist Name",
+          "style": "strong",
+          "label": "Artist"
+        },
+        {
+          "type": "text",
+          "id": "song",
+          "gap": 6,
+          "text": "Song Title",
+          "style": "strong",
+          "label": "Song"
+        },
+        {
+          "type": "text",
+          "id": "album",
+          "gap": 6,
+          "text": "Song Title",
+          "style": "strong",
+          "label": "Album"
+        },
+        {
+          "type": "button",
+          "id": "cancel",
+          "gap": 14,
+          "label": "Cancel",
+          "style": "plain",
+          "action": {
+            "id": "cancel"
+          },
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "id": "rescan",
+      "gap": 14,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "rescanHint",
+          "text": "Rescan if a new song doesn't show up yet.",
+          "style": "subhead"
+        },
+        {
+          "type": "button",
+          "id": "rescan",
+          "gap": 10,
+          "label": "Rescan library",
+          "symbol": "arrow.triangle.2.circlepath",
+          "style": "prominent",
+          "action": {
+            "id": "rescan"
+          }
+        }
+      ]
+    }
+  ]
+}

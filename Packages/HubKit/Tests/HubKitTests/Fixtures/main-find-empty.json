@@ -1,0 +1,155 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Add",
+  "tab": {
+    "title": "Add",
+    "symbol": "dot.radiowaves.left.and.right"
+  },
+  "refresh": 30,
+  "sections": [
+    {
+      "id": "mode",
+      "card": "none",
+      "parts": [
+        {
+          "type": "choice",
+          "id": "mode",
+          "options": [
+            {
+              "id": "paste",
+              "label": "Video"
+            },
+            {
+              "id": "find",
+              "label": "Catalog"
+            }
+          ],
+          "value": "find",
+          "action": {
+            "id": "mode",
+            "sends": [
+              "mode"
+            ]
+          },
+          "large": true
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "field",
+          "id": "q",
+          "placeholder": "Search artists",
+          "label": "Search",
+          "value": "broken",
+          "paste": false,
+          "keyboard": "text",
+          "returnKey": "search",
+          "submit": {
+            "id": "search",
+            "sends": [
+              "q"
+            ]
+          },
+          "clear": {
+            "id": "clear"
+          }
+        },
+        {
+          "type": "choice",
+          "id": "searchMode",
+          "gap": 12,
+          "options": [
+            {
+              "id": "albums",
+              "label": "Albums"
+            },
+            {
+              "id": "artists",
+              "label": "Artists"
+            }
+          ],
+          "value": "artists",
+          "action": {
+            "id": "searchMode",
+            "sends": [
+              "searchMode"
+            ]
+          },
+          "button": {
+            "id": "search",
+            "label": "Search",
+            "style": "prominent",
+            "action": {
+              "id": "search",
+              "sends": [
+                "q"
+              ]
+            },
+            "needs": [
+              "q"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "id": "artistsNote",
+          "gap": 12,
+          "text": "Requesting an artist monitors their whole discography.",
+          "style": "caption"
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "gap": 12,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "searchError",
+          "text": "Catalog answered with an error (500).",
+          "style": "subhead",
+          "symbol": "exclamationmark.triangle.fill",
+          "tint": "red",
+          "button": {
+            "id": "searchRetry",
+            "label": "Retry",
+            "style": "plain",
+            "action": {
+              "id": "searchRetry"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "requests",
+      "title": "Requests",
+      "button": {
+        "id": "requestsRefresh",
+        "label": "Refresh requests",
+        "symbol": "arrow.clockwise",
+        "style": "plain",
+        "action": {
+          "id": "requests"
+        }
+      },
+      "gap": 28,
+      "card": "none",
+      "parts": [
+        {
+          "type": "text",
+          "id": "requestsEmpty",
+          "text": "Nothing requested yet. Search for an album above and tap Request.",
+          "style": "secondary",
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}

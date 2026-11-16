@@ -1,0 +1,998 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "searchResult3": {
+      "artist": [
+        {
+          "id": "47J4kLtntqT8Xa9X4NVbnv",
+          "name": "Cochise",
+          "coverArt": "ar-47J4kLtntqT8Xa9X4NVbnv_a339949c6ca9a8b0",
+          "albumCount": 3,
+          "artistImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=600",
+          "musicBrainzId": "",
+          "sortName": "cochise",
+          "roles": [
+            "maincredit",
+            "albumartist",
+            "artist"
+          ]
+        },
+        {
+          "id": "14XSqVib7x9eW3xUCTZBqK",
+          "name": "Cochise & Pradabagshawty",
+          "albumCount": 0,
+          "musicBrainzId": "",
+          "sortName": "cochise & pradabagshawty",
+          "roles": [
+            "artist",
+            "maincredit"
+          ]
+        }
+      ],
+      "album": [
+        {
+          "id": "7z9JVZQ2SmdBVOUKaFUALW",
+          "name": "PIRU",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-7z9JVZQ2SmdBVOUKaFUALW_8fd15f078481ff08",
+          "songCount": 1,
+          "duration": 145,
+          "created": "2026-11-04T18:26:03.869055197Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "piru",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "5tDNdwIQTVclZb9ASelEZJ",
+          "name": "me",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-5tDNdwIQTVclZb9ASelEZJ_898ad586020c6801",
+          "songCount": 14,
+          "duration": 2140,
+          "created": "2026-11-02T22:57:46.101408971Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "me",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "19uRfojcKGj90TIs32aTE0",
+          "name": "IMGEEKED, IM HIGH, IM FCKED UP",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-19uRfojcKGj90TIs32aTE0_7761e40f54d8e21e",
+          "songCount": 1,
+          "duration": 150,
+          "created": "2026-11-04T18:15:11.474813951Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "imgeeked, im high, im fcked up",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        }
+      ],
+      "song": [
+        {
+          "id": "7wnp7ic5FcsZfCKCYv3YDY",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Blackity",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-7wnp7ic5FcsZfCKCYv3YDY_898ad586020c6801",
+          "size": 2881551,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 118,
+          "bitRate": 192,
+          "path": "Cochise/me/Blackity.mp3",
+          "created": "2026-11-03T19:44:38.421926671Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "blackity",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "4hG0rOvBUYLTNr8emGmF7X",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Bucks",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-4hG0rOvBUYLTNr8emGmF7X_898ad586020c6801",
+          "size": 2190664,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 89,
+          "bitRate": 192,
+          "path": "Cochise/me/Bucks.mp3",
+          "created": "2026-11-03T19:44:38.423371407Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "bucks",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "4OMCg3YvqzGiIManzyMXLw",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Jackson",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-4OMCg3YvqzGiIManzyMXLw_898ad586020c6801",
+          "size": 2932960,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 120,
+          "bitRate": 192,
+          "path": "Cochise/me/Jackson.mp3",
+          "created": "2026-11-03T19:44:38.428117505Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "jackson",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "4dcjrAe0VtHr82bmimeBID",
+          "parent": "7z9JVZQ2SmdBVOUKaFUALW",
+          "isDir": false,
+          "title": "PIRU",
+          "album": "PIRU",
+          "artist": "Cochise",
+          "coverArt": "mf-4dcjrAe0VtHr82bmimeBID_8fd15f078481ff08",
+          "size": 5915387,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 145,
+          "bitRate": 320,
+          "path": "Cochise/PIRU/PIRU.mp3",
+          "created": "2026-11-04T18:26:08.942102579Z",
+          "albumId": "7z9JVZQ2SmdBVOUKaFUALW",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "piru",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "2v9T74LI3UFBY0vNcWqzt5",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Do Sum",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-2v9T74LI3UFBY0vNcWqzt5_898ad586020c6801",
+          "size": 4067763,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 127,
+          "bitRate": 252,
+          "path": "Cochise/me/Do Sum.mp3",
+          "created": "2026-11-02T22:57:52.004391455Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "do sum",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "157zyNsKAIqjC1MID4weXV",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Left Stepback",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-157zyNsKAIqjC1MID4weXV_898ad586020c6801",
+          "size": 8900790,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 369,
+          "bitRate": 192,
+          "path": "Cochise/me/Left Stepback.mp3",
+          "created": "2026-11-03T19:44:38.429388033Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "left stepback",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "7G4qEWlUS3ilmcKpZbmF4E",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Tokyo Drift",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-7G4qEWlUS3ilmcKpZbmF4E_898ad586020c6801",
+          "size": 2600055,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 106,
+          "bitRate": 192,
+          "path": "Cochise/me/Tokyo Drift.mp3",
+          "created": "2026-11-03T19:44:38.421071325Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "tokyo drift",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "7zjQRLQhnjg2VwCC1c0t0d",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Brand New Jeep",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-7zjQRLQhnjg2VwCC1c0t0d_898ad586020c6801",
+          "size": 2892836,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 118,
+          "bitRate": 192,
+          "path": "Cochise/me/Brand New Jeep.mp3",
+          "created": "2026-11-03T19:44:38.434195319Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "brand new jeep",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "6YYyWVP2C7v9ckFMk8GUbB",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Do My Dance",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-6YYyWVP2C7v9ckFMk8GUbB_898ad586020c6801",
+          "size": 6796156,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 281,
+          "bitRate": 192,
+          "path": "Cochise/me/Do My Dance.mp3",
+          "created": "2026-11-03T19:44:38.430713757Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "do my dance",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "7invvvk1ekeosVFFATb5cO",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "I Be Like",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-7invvvk1ekeosVFFATb5cO_898ad586020c6801",
+          "size": 3656447,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 150,
+          "bitRate": 192,
+          "path": "Cochise/me/I Be Like.mp3",
+          "created": "2026-11-03T19:44:38.431993808Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "i be like",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "0kxNy5A2f53Hafc1EIwpjH",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "She Want Me",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-0kxNy5A2f53Hafc1EIwpjH_898ad586020c6801",
+          "size": 3077156,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 126,
+          "bitRate": 192,
+          "path": "Cochise/me/She Want Me.mp3",
+          "created": "2026-11-03T19:44:38.42265763Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "she want me",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "4OIqwjDj1oAgRbU6jpTYjY",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "WEEK AFTER WEEK",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-4OIqwjDj1oAgRbU6jpTYjY_898ad586020c6801",
+          "size": 2827323,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 85,
+          "bitRate": 262,
+          "path": "Cochise/me/WEEK AFTER WEEK.mp3",
+          "created": "2026-11-03T19:44:38.432741778Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "week after week",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "56h6Ldkm9vrQKqPCpjXHlN",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "IDK What I Want",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-56h6Ldkm9vrQKqPCpjXHlN_898ad586020c6801",
+          "size": 4603515,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 146,
+          "bitRate": 250,
+          "path": "Cochise/me/IDK What I Want.mp3",
+          "created": "2026-11-03T19:44:38.426849404Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "idk what i want",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "0Ow2dNJ4QeQpkxHdzEukSA",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Miss The Old Me",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-0Ow2dNJ4QeQpkxHdzEukSA_898ad586020c6801",
+          "size": 2446873,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 150,
+          "bitRate": 128,
+          "path": "Cochise/me/Miss The Old Me.mp3",
+          "created": "2026-11-03T19:44:38.41987235Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "miss the old me",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "2Aj6NMbTd1NYLZ0gz8flQM",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Wake Up This Morning",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-2Aj6NMbTd1NYLZ0gz8flQM_898ad586020c6801",
+          "size": 3578707,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 147,
+          "bitRate": 192,
+          "path": "Cochise/me/Wake Up This Morning.mp3",
+          "created": "2026-11-03T19:44:38.43346053Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "wake up this morning",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "1AO8Mjva95RlwOK9cDOvEd",
+          "parent": "19uRfojcKGj90TIs32aTE0",
+          "isDir": false,
+          "title": "IMGEEKED, IM HIGH, IM FCKED UP",
+          "album": "IMGEEKED, IM HIGH, IM FCKED UP",
+          "artist": "Cochise & Pradabagshawty",
+          "coverArt": "mf-1AO8Mjva95RlwOK9cDOvEd_7761e40f54d8e21e",
+          "size": 6092614,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 150,
+          "bitRate": 320,
+          "path": "Cochise/IMGEEKED, IM HIGH, IM FCKED UP/IMGEEKED, IM HIGH, IM FCKED UP.mp3",
+          "created": "2026-11-04T18:15:16.584621602Z",
+          "albumId": "19uRfojcKGj90TIs32aTE0",
+          "artistId": "14XSqVib7x9eW3xUCTZBqK",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "imgeeked, im high, im fcked up",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "14XSqVib7x9eW3xUCTZBqK",
+              "name": "Cochise & Pradabagshawty"
+            }
+          ],
+          "displayArtist": "Cochise & Pradabagshawty",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "7fSxIieI8G2j1678BsRQRk",
+          "parent": "69IwB2p7tQDejD3lowUIFo",
+          "isDir": false,
+          "title": "Cochise & Pradabagshawty - IMGEEKED, IM HIGH, IM FCKED UP ＊snippet＊ (EXTENDED EDIT) (HQ) [0hponDOO2xg]",
+          "album": "[Unknown Album]",
+          "artist": "[Unknown Artist]",
+          "size": 2470508,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 150,
+          "bitRate": 131,
+          "path": "[Unknown Artist]/[Unknown Album]/Cochise & Pradabagshawty - IMGEEKED, IM HIGH, IM FCKED UP ＊snippet＊ (EXTENDED EDIT) (HQ) [0hponDOO2xg].mp3",
+          "created": "2026-11-03T21:25:37.062206995Z",
+          "albumId": "69IwB2p7tQDejD3lowUIFo",
+          "artistId": "6QiT23Pg8GAJHZop58uMKH",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "cochise & pradabagshawty - imgeeked, im high, im fcked up ＊snippet＊ (extended edit) (hq) [0hpondoo2xg]",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "6QiT23Pg8GAJHZop58uMKH",
+              "name": "[Unknown Artist]"
+            }
+          ],
+          "displayArtist": "[Unknown Artist]",
+          "albumArtists": [
+            {
+              "id": "6QiT23Pg8GAJHZop58uMKH",
+              "name": "[Unknown Artist]"
+            }
+          ],
+          "displayAlbumArtist": "[Unknown Artist]",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        }
+      ]
+    }
+  }
+}

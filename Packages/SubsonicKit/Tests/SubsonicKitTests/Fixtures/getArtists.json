@@ -1,0 +1,70 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "artists": {
+      "index": [
+        {
+          "name": "C",
+          "artist": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise",
+              "coverArt": "ar-47J4kLtntqT8Xa9X4NVbnv_a339949c6ca9a8b0",
+              "albumCount": 3,
+              "artistImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=600",
+              "musicBrainzId": "",
+              "sortName": "cochise",
+              "roles": [
+                "maincredit",
+                "albumartist",
+                "artist"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "S",
+          "artist": [
+            {
+              "id": "5IjmcfcG0yt0ILfJfjxlBl",
+              "name": "Smino",
+              "coverArt": "ar-5IjmcfcG0yt0ILfJfjxlBl_c073b97ad1134b87",
+              "albumCount": 1,
+              "artistImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=600",
+              "musicBrainzId": "",
+              "sortName": "smino",
+              "roles": [
+                "artist",
+                "maincredit",
+                "albumartist"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "[Unknown]",
+          "artist": [
+            {
+              "id": "6QiT23Pg8GAJHZop58uMKH",
+              "name": "[Unknown Artist]",
+              "albumCount": 1,
+              "musicBrainzId": "",
+              "sortName": "[unknown artist]",
+              "roles": [
+                "artist",
+                "maincredit",
+                "albumartist"
+              ]
+            }
+          ]
+        }
+      ],
+      "lastModified": 1793817296000,
+      "ignoredArticles": "The El La Los Las Le Les Os As O A"
+    }
+  }
+}

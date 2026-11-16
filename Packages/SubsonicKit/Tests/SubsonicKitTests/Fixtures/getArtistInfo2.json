@@ -1,0 +1,15 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "artistInfo2": {
+      "biography": "Cochise is entering a new era. The 26-year-old Florida rapper has already proven to be an eclectic artist, injecting the slick adlibs of peak 2010s SoundCloud rap, with a sugar rush flow that sounds like FL Studio overloading. That sound brought The 2022 XXL Freshman to prominence, leading to viral singles such as “Tell Em” with $not, “Hatchback”, and “Pocket Rocket” (202M+ Streams). Finding major success in the highly competitive Florida rap scene has inspired Cochise to reach for more ambition and show all sides of his artistry. New singles such as “Geeked”, “Lay Up” and “Yoshimitsu” have him slowing down his flow and making cloud rap inspired tracks that add a calming haze to the backdrop of his colorful world. Cochise is treating the next stage of his career as a metamorphosis, mixing the sound that made him with a more measured approach to continue building on his expansive lore.",
+      "smallImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=300",
+      "mediumImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=600",
+      "largeImageUrl": "http://<navidrome-host>:4533/share/img/<token>?size=1200"
+    }
+  }
+}

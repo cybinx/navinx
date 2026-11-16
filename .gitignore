@@ -1,0 +1,26 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+DerivedData/
+build/
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# macOS
+.DS_Store
+
+# Secrets (never commit these)
+*.env
+.env
+*.p12
+*.mobileprovision
+
+# Jekyll, when the site is previewed locally
+_site/
+.jekyll-cache/

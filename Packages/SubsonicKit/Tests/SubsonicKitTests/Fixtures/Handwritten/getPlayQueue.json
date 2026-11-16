@@ -1,0 +1,171 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "playQueue": {
+      "entry": [
+        {
+          "id": "0kxNy5A2f53Hafc1EIwpjH",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "She Want Me",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-0kxNy5A2f53Hafc1EIwpjH_898ad586020c6801",
+          "size": 3077156,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 126,
+          "bitRate": 192,
+          "path": "Cochise/me/She Want Me.mp3",
+          "created": "2026-11-03T19:44:38.42265763Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "she want me",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "7G4qEWlUS3ilmcKpZbmF4E",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Tokyo Drift",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-7G4qEWlUS3ilmcKpZbmF4E_898ad586020c6801",
+          "size": 2600055,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 106,
+          "bitRate": 192,
+          "path": "Cochise/me/Tokyo Drift.mp3",
+          "created": "2026-11-03T19:44:38.421071325Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "tokyo drift",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        },
+        {
+          "id": "4OIqwjDj1oAgRbU6jpTYjY",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "WEEK AFTER WEEK",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-4OIqwjDj1oAgRbU6jpTYjY_898ad586020c6801",
+          "size": 2827323,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 85,
+          "bitRate": 262,
+          "path": "Cochise/me/WEEK AFTER WEEK.mp3",
+          "created": "2026-11-03T19:44:38.432741778Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "week after week",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 48000,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        }
+      ],
+      "current": "7G4qEWlUS3ilmcKpZbmF4E",
+      "position": 61234,
+      "username": "api",
+      "changed": "2026-11-13T18:04:11.512345678Z",
+      "changedBy": "Navinx"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "topSongs": {
+      "song": [
+        {
+          "id": "4OMCg3YvqzGiIManzyMXLw",
+          "parent": "5tDNdwIQTVclZb9ASelEZJ",
+          "isDir": false,
+          "title": "Jackson",
+          "album": "me",
+          "artist": "Cochise",
+          "coverArt": "mf-4OMCg3YvqzGiIManzyMXLw_898ad586020c6801",
+          "size": 2932960,
+          "contentType": "audio/mpeg",
+          "suffix": "mp3",
+          "duration": 120,
+          "bitRate": 192,
+          "path": "Cochise/me/Jackson.mp3",
+          "created": "2026-11-03T19:44:38.428117505Z",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "type": "music",
+          "bpm": 0,
+          "comment": "",
+          "sortName": "jackson",
+          "mediaType": "song",
+          "musicBrainzId": "",
+          "isrc": [],
+          "genres": [],
+          "replayGain": {},
+          "channelCount": 2,
+          "samplingRate": 44100,
+          "bitDepth": 0,
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "albumArtists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayAlbumArtist": "Cochise",
+          "contributors": [],
+          "displayComposer": "",
+          "explicitStatus": "",
+          "groupings": [],
+          "works": [],
+          "movements": []
+        }
+      ]
+    }
+  }
+}

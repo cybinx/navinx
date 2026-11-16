@@ -1,0 +1,10 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "otherserver",
+    "albumList2": {
+      "album": { "id": 42, "album": "Numbered", "songCount": "9", "year": "2001" }
+    }
+  }
+}

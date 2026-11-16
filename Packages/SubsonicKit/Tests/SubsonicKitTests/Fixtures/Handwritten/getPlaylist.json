@@ -1,0 +1,40 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "playlist": {
+      "id": "pl-1",
+      "name": "Late night",
+      "comment": "slow ones",
+      "songCount": 2,
+      "duration": 3900,
+      "public": false,
+      "owner": "api",
+      "created": "2026-11-01T08:00:00.123456789Z",
+      "changed": "2026-11-04T21:30:00Z",
+      "coverArt": "pl-pl-1_6727b2a0",
+      "entry": [
+        {
+          "id": "4OMCg3YvqzGiIManzyMXLw",
+          "title": "Jackson",
+          "album": "me",
+          "artist": "Cochise",
+          "albumId": "5tDNdwIQTVclZb9ASelEZJ",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "duration": 120,
+          "starred": "2026-11-04T21:00:00Z"
+        },
+        {
+          "id": "song-2",
+          "title": "Pow Wow",
+          "album": "Pow Wow",
+          "artist": "Smino",
+          "duration": 3780
+        }
+      ]
+    }
+  }
+}

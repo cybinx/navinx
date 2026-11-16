@@ -1,0 +1,333 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Add",
+  "tab": {
+    "title": "Add",
+    "symbol": "dot.radiowaves.left.and.right"
+  },
+  "refresh": 5,
+  "sections": [
+    {
+      "id": "mode",
+      "card": "none",
+      "parts": [
+        {
+          "type": "choice",
+          "id": "mode",
+          "options": [
+            {
+              "id": "paste",
+              "label": "Video"
+            },
+            {
+              "id": "find",
+              "label": "Catalog"
+            }
+          ],
+          "value": "find",
+          "action": {
+            "id": "mode",
+            "sends": [
+              "mode"
+            ]
+          },
+          "large": true
+        }
+      ]
+    },
+    {
+      "id": "search",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "field",
+          "id": "q",
+          "placeholder": "Search artists",
+          "label": "Search",
+          "value": "nothing",
+          "paste": false,
+          "keyboard": "text",
+          "returnKey": "search",
+          "submit": {
+            "id": "search",
+            "sends": [
+              "q"
+            ]
+          },
+          "clear": {
+            "id": "clear"
+          }
+        },
+        {
+          "type": "choice",
+          "id": "searchMode",
+          "gap": 12,
+          "options": [
+            {
+              "id": "albums",
+              "label": "Albums"
+            },
+            {
+              "id": "artists",
+              "label": "Artists"
+            }
+          ],
+          "value": "artists",
+          "action": {
+            "id": "searchMode",
+            "sends": [
+              "searchMode"
+            ]
+          },
+          "button": {
+            "id": "search",
+            "label": "Search",
+            "style": "prominent",
+            "action": {
+              "id": "search",
+              "sends": [
+                "q"
+              ]
+            },
+            "needs": [
+              "q"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "id": "artistsNote",
+          "gap": 12,
+          "text": "Requesting an artist monitors their whole discography.",
+          "style": "caption"
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "gap": 12,
+      "card": "none",
+      "parts": [
+        {
+          "type": "text",
+          "id": "searchEmpty",
+          "text": "No artists found for \"nothing\".",
+          "style": "secondary",
+          "align": "center"
+        }
+      ]
+    },
+    {
+      "id": "requests",
+      "title": "Requests",
+      "button": {
+        "id": "requestsRefresh",
+        "label": "Refresh requests",
+        "symbol": "arrow.clockwise",
+        "style": "plain",
+        "action": {
+          "id": "requests"
+        }
+      },
+      "gap": 28,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "row",
+          "id": "requestRow-23",
+          "title": "A Moon Shaped Pool",
+          "subtitle": "Radiohead · Failed",
+          "image": "https://images.example/a-moon-shaped-pool.png",
+          "imageSize": 52,
+          "symbol": "xmark.circle.fill",
+          "tint": "red",
+          "action": {
+            "id": "open:23"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-25",
+          "title": "Hail to the Thief (Live)",
+          "subtitle": "Radiohead · Failed",
+          "image": "https://images.example/hail-to-the-thief-live.png",
+          "imageSize": 52,
+          "symbol": "xmark.circle.fill",
+          "tint": "red",
+          "action": {
+            "id": "open:25"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-21",
+          "title": "Amnesiac",
+          "subtitle": "Radiohead · Downloading 50%",
+          "image": "https://images.example/amnesiac.png",
+          "imageSize": 52,
+          "symbol": "arrow.down.circle.fill",
+          "tint": "accent",
+          "progress": 0.5,
+          "action": {
+            "id": "open:21"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-22",
+          "title": "The Bends",
+          "subtitle": "Radiohead · Importing",
+          "image": "https://images.example/the-bends.png",
+          "imageSize": 52,
+          "symbol": "tray.and.arrow.down.fill",
+          "tint": "accent",
+          "action": {
+            "id": "open:22"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-20",
+          "title": "Hail to the Thief",
+          "subtitle": "Radiohead · Queued",
+          "image": "https://images.example/hail-to-the-thief.png",
+          "imageSize": 52,
+          "symbol": "clock.fill",
+          "tint": "secondary",
+          "action": {
+            "id": "open:20"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-30",
+          "title": "THE INSPECTION",
+          "subtitle": "Cochise · Waiting for a release",
+          "image": "https://images.example/the-inspection.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:30"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-31",
+          "title": "me",
+          "subtitle": "Cochise · Waiting for a release",
+          "image": "https://images.example/me.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:31"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-32",
+          "title": "PIRU",
+          "subtitle": "Cochise · Waiting for a release",
+          "image": "https://images.example/piru.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:32"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-33",
+          "title": "Benbow Crescent",
+          "subtitle": "Cochise · Waiting for a release",
+          "image": "https://images.example/benbow-crescent.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:33"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-34",
+          "title": "Haunted",
+          "subtitle": "Cochise · Waiting for a release",
+          "image": "https://images.example/haunted.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:34"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-101",
+          "title": "In Rainbows",
+          "subtitle": "Radiohead · Waiting for a release",
+          "image": "https://images.example/in-rainbows.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:101"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-11",
+          "title": "Kid A",
+          "subtitle": "Radiohead · Waiting for a release",
+          "image": "https://images.example/kid-a.png",
+          "imageSize": 52,
+          "symbol": "magnifyingglass.circle.fill",
+          "tint": "orange",
+          "action": {
+            "id": "open:11"
+          }
+        },
+        {
+          "type": "row",
+          "id": "requestRow-24",
+          "title": "In the Aeroplane",
+          "subtitle": "Neutral Milk Hotel · Imported",
+          "image": "https://images.example/in-the-aeroplane.png",
+          "imageSize": 52,
+          "symbol": "checkmark.circle.fill",
+          "tint": "green",
+          "action": {
+            "id": "open:24"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rescan",
+      "gap": 14,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "imported",
+          "text": "Something has been imported.",
+          "style": "subhead"
+        },
+        {
+          "type": "button",
+          "id": "rescan",
+          "gap": 10,
+          "label": "Rescan library",
+          "symbol": "arrow.triangle.2.circlepath",
+          "style": "prominent",
+          "action": {
+            "id": "rescan"
+          }
+        }
+      ]
+    }
+  ]
+}

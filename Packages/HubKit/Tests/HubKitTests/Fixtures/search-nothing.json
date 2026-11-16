@@ -1,0 +1,29 @@
+{
+  "v": 1,
+  "id": "search",
+  "title": "",
+  "sections": [
+    {
+      "id": "find",
+      "title": "From Catalog",
+      "gap": 8,
+      "card": "none",
+      "parts": [
+        {
+          "type": "text",
+          "id": "findNote",
+          "gap": 2,
+          "text": "Not in your library yet? Request it and Catalog will download it.",
+          "style": "caption"
+        },
+        {
+          "type": "text",
+          "id": "findEmpty",
+          "gap": 8,
+          "text": "Catalog found nothing for \"nothing\".",
+          "style": "secondary"
+        }
+      ]
+    }
+  ]
+}

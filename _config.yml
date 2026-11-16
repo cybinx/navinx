@@ -1,0 +1,16 @@
+title: Navinx
+description: A free iPhone music player for your own Navidrome or Subsonic server.
+theme: jekyll-theme-primer
+baseurl: /navinx
+# The app's source shares the repository with the site: Jekyll serves only the pages.
+exclude:
+  - README.md
+  - LICENSE
+  - THIRD-PARTY-NOTICES.md
+  - Navinx
+  - Navinx.xcodeproj
+  - NavinxWidgets
+  - NavinxTests
+  - NavinxUITests
+  - Packages
+  - Config

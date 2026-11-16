@@ -1,0 +1,154 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Add",
+  "tab": {
+    "title": "Add",
+    "symbol": "dot.radiowaves.left.and.right"
+  },
+  "sections": [
+    {
+      "id": "mode",
+      "card": "none",
+      "parts": [
+        {
+          "type": "choice",
+          "id": "mode",
+          "options": [
+            {
+              "id": "paste",
+              "label": "Video"
+            },
+            {
+              "id": "find",
+              "label": "Catalog"
+            }
+          ],
+          "value": "paste",
+          "action": {
+            "id": "mode",
+            "sends": [
+              "mode"
+            ]
+          },
+          "large": true
+        }
+      ]
+    },
+    {
+      "id": "link",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "field",
+          "id": "link",
+          "placeholder": "Paste a Video link",
+          "label": "Video link",
+          "value": "https://example.com/watch?v=one",
+          "paste": true,
+          "keyboard": "url",
+          "returnKey": "go",
+          "submit": {
+            "id": "check",
+            "sends": [
+              "link"
+            ]
+          },
+          "button": {
+            "id": "check",
+            "label": "Check",
+            "style": "prominent",
+            "action": {
+              "id": "check",
+              "sends": [
+                "link"
+              ]
+            },
+            "needs": [
+              "link"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "done",
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "done",
+          "text": "Added to your library",
+          "style": "headline",
+          "symbol": "checkmark.circle.fill",
+          "tint": "green"
+        },
+        {
+          "type": "text",
+          "id": "file",
+          "gap": 8,
+          "text": "Artist Name - Song Title.mp3",
+          "style": "secondary"
+        },
+        {
+          "type": "text",
+          "id": "warning",
+          "gap": 8,
+          "text": "No media server is configured, so the library wasn't rescanned.",
+          "style": "subhead",
+          "tint": "orange"
+        },
+        {
+          "type": "button",
+          "id": "another",
+          "gap": 12,
+          "label": "Add another",
+          "style": "prominent",
+          "action": {
+            "id": "another"
+          }
+        }
+      ]
+    },
+    {
+      "id": "session",
+      "title": "This session",
+      "gap": 28,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "row",
+          "id": "session-0",
+          "title": "Artist Name - Song Title",
+          "subtitle": "Added",
+          "symbol": "checkmark.circle.fill",
+          "tint": "green"
+        }
+      ]
+    },
+    {
+      "id": "rescan",
+      "gap": 14,
+      "card": "glass",
+      "parts": [
+        {
+          "type": "text",
+          "id": "rescanHint",
+          "text": "Rescan if a new song doesn't show up yet.",
+          "style": "subhead"
+        },
+        {
+          "type": "button",
+          "id": "rescan",
+          "gap": 10,
+          "label": "Rescan library",
+          "symbol": "arrow.triangle.2.circlepath",
+          "style": "prominent",
+          "action": {
+            "id": "rescan"
+          }
+        }
+      ]
+    }
+  ]
+}

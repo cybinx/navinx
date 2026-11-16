@@ -1,0 +1,103 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "albumList2": {
+      "album": [
+        {
+          "id": "5Y1jwuG6nX3vYAzxoRBIFb",
+          "name": "Pow Wow",
+          "artist": "Smino",
+          "artistId": "5IjmcfcG0yt0ILfJfjxlBl",
+          "coverArt": "al-5Y1jwuG6nX3vYAzxoRBIFb_e8fd8e3223e835c9",
+          "songCount": 1,
+          "duration": 169,
+          "created": "2026-11-04T18:34:51.215251023Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "pow wow",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "5IjmcfcG0yt0ILfJfjxlBl",
+              "name": "Smino"
+            }
+          ],
+          "displayArtist": "Smino",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "7z9JVZQ2SmdBVOUKaFUALW",
+          "name": "PIRU",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-7z9JVZQ2SmdBVOUKaFUALW_8fd15f078481ff08",
+          "songCount": 1,
+          "duration": 145,
+          "created": "2026-11-04T18:26:03.869055197Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "piru",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        },
+        {
+          "id": "19uRfojcKGj90TIs32aTE0",
+          "name": "IMGEEKED, IM HIGH, IM FCKED UP",
+          "artist": "Cochise",
+          "artistId": "47J4kLtntqT8Xa9X4NVbnv",
+          "coverArt": "al-19uRfojcKGj90TIs32aTE0_7761e40f54d8e21e",
+          "songCount": 1,
+          "duration": 150,
+          "created": "2026-11-04T18:15:11.474813951Z",
+          "userRating": 0,
+          "genres": [],
+          "musicBrainzId": "",
+          "isCompilation": false,
+          "sortName": "imgeeked, im high, im fcked up",
+          "discTitles": [],
+          "originalReleaseDate": {},
+          "releaseDate": {},
+          "releaseTypes": [],
+          "recordLabels": [],
+          "moods": [],
+          "artists": [
+            {
+              "id": "47J4kLtntqT8Xa9X4NVbnv",
+              "name": "Cochise"
+            }
+          ],
+          "displayArtist": "Cochise",
+          "explicitStatus": "",
+          "version": ""
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "subsonic-response": {
+    "status": "ok",
+    "version": "1.16.1",
+    "type": "navidrome",
+    "serverVersion": "0.64.2 (10114574)",
+    "openSubsonic": true,
+    "artists": {
+      "ignoredArticles": "The El La Los Las Le Les",
+      "index": [
+        {
+          "name": "B",
+          "artist": [
+            { "id": "", "name": "beta", "albumCount": 1 },
+            { "id": "ar-ab", "name": "Alpha & Beta", "coverArt": "ar-ab_1", "albumCount": 2 }
+          ]
+        },
+        {
+          "name": "C",
+          "artist": [
+            {
+              "id": "ar-cd",
+              "name": "Charlie, Delta",
+              "albumCount": 1,
+              "artists": [
+                { "id": "ar-c", "name": "Charlie" },
+                { "id": "ar-d", "name": "Delta", "coverArt": "ar-d_9" }
+              ]
+            },
+            { "id": "ar-blank", "name": "   ", "albumCount": 1 }
+          ]
+        },
+        {
+          "name": "A",
+          "artist": { "id": "ar-a", "name": "Alpha", "albumCount": 5 }
+        }
+      ]
+    }
+  }
+}

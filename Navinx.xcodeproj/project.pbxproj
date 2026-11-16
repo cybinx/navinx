@@ -1,0 +1,733 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000000000000000000B001 /* SubsonicKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E001 /* SubsonicKit */; };
+		A1000000000000000000B002 /* PlaybackKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E002 /* PlaybackKit */; };
+		A1000000000000000000B003 /* Lyrics in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E003 /* Lyrics */; };
+		A1000000000000000000B004 /* HubKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E004 /* HubKit */; };
+		A1000000000000000000B005 /* SharedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E005 /* SharedKit */; };
+		A1000000000000000000B006 /* SharedKit in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E006 /* SharedKit */; };
+		A1000000000000000000B007 /* NavinxWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A10000000000000000000014 /* NavinxWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1000000000000000000B008 /* DeviceIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = A1000000000000000000E007 /* DeviceIdentity */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1000000000000000000C001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10000000000000000000101;
+			remoteInfo = Navinx;
+		};
+		A1000000000000000000C002 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10000000000000000000101;
+			remoteInfo = Navinx;
+		};
+		A1000000000000000000C003 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A10000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10000000000000000000104;
+			remoteInfo = NavinxWidgets;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A10000000000000000000034 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A1000000000000000000B007 /* NavinxWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		A10000000000000000000011 /* Navinx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navinx.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000012 /* NavinxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavinxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000013 /* NavinxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavinxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000014 /* NavinxWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NavinxWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000000000000000000F002 /* SubsonicKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SubsonicKit; path = Packages/SubsonicKit; sourceTree = "<group>"; };
+		A1000000000000000000F003 /* PlaybackKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = PlaybackKit; path = Packages/PlaybackKit; sourceTree = "<group>"; };
+		A1000000000000000000F004 /* Lyrics */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Lyrics; path = Packages/Lyrics; sourceTree = "<group>"; };
+		A1000000000000000000F005 /* HubKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = HubKit; path = Packages/HubKit; sourceTree = "<group>"; };
+		A1000000000000000000F006 /* SharedKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SharedKit; path = Packages/SharedKit; sourceTree = "<group>"; };
+		A1000000000000000000F007 /* DeviceIdentity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = DeviceIdentity; path = Packages/DeviceIdentity; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A10000000000000000000021 /* Navinx */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Navinx;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000022 /* NavinxTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NavinxTests;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000023 /* NavinxUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NavinxUITests;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000024 /* NavinxWidgets */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NavinxWidgets;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000032 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000000000000000000B001 /* SubsonicKit in Frameworks */,
+				A1000000000000000000B002 /* PlaybackKit in Frameworks */,
+				A1000000000000000000B003 /* Lyrics in Frameworks */,
+				A1000000000000000000B004 /* HubKit in Frameworks */,
+				A1000000000000000000B005 /* SharedKit in Frameworks */,
+				A1000000000000000000B008 /* DeviceIdentity in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000042 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000062 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000000000000000000B006 /* SharedKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				A1000000000000000000F002 /* SubsonicKit */,
+				A1000000000000000000F003 /* PlaybackKit */,
+				A1000000000000000000F004 /* Lyrics */,
+				A1000000000000000000F005 /* HubKit */,
+				A1000000000000000000F006 /* SharedKit */,
+				A1000000000000000000F007 /* DeviceIdentity */,
+				A10000000000000000000021 /* Navinx */,
+				A10000000000000000000022 /* NavinxTests */,
+				A10000000000000000000023 /* NavinxUITests */,
+				A10000000000000000000024 /* NavinxWidgets */,
+				A10000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000011 /* Navinx.app */,
+				A10000000000000000000012 /* NavinxTests.xctest */,
+				A10000000000000000000013 /* NavinxUITests.xctest */,
+				A10000000000000000000014 /* NavinxWidgets.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000101 /* Navinx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000201 /* Build configuration list for PBXNativeTarget "Navinx" */;
+			buildPhases = (
+				A10000000000000000000031 /* Sources */,
+				A10000000000000000000032 /* Frameworks */,
+				A10000000000000000000033 /* Resources */,
+				A10000000000000000000034 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1000000000000000000D003 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A10000000000000000000021 /* Navinx */,
+			);
+			name = Navinx;
+			packageProductDependencies = (
+				A1000000000000000000E001 /* SubsonicKit */,
+				A1000000000000000000E002 /* PlaybackKit */,
+				A1000000000000000000E003 /* Lyrics */,
+				A1000000000000000000E004 /* HubKit */,
+				A1000000000000000000E005 /* SharedKit */,
+				A1000000000000000000E007 /* DeviceIdentity */,
+			);
+			productName = Navinx;
+			productReference = A10000000000000000000011 /* Navinx.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A10000000000000000000102 /* NavinxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000202 /* Build configuration list for PBXNativeTarget "NavinxTests" */;
+			buildPhases = (
+				A10000000000000000000041 /* Sources */,
+				A10000000000000000000042 /* Frameworks */,
+				A10000000000000000000043 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1000000000000000000D001 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A10000000000000000000022 /* NavinxTests */,
+			);
+			name = NavinxTests;
+			packageProductDependencies = (
+			);
+			productName = NavinxTests;
+			productReference = A10000000000000000000012 /* NavinxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A10000000000000000000103 /* NavinxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000203 /* Build configuration list for PBXNativeTarget "NavinxUITests" */;
+			buildPhases = (
+				A10000000000000000000051 /* Sources */,
+				A10000000000000000000052 /* Frameworks */,
+				A10000000000000000000053 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1000000000000000000D002 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A10000000000000000000023 /* NavinxUITests */,
+			);
+			name = NavinxUITests;
+			packageProductDependencies = (
+			);
+			productName = NavinxUITests;
+			productReference = A10000000000000000000013 /* NavinxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A10000000000000000000104 /* NavinxWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000204 /* Build configuration list for PBXNativeTarget "NavinxWidgets" */;
+			buildPhases = (
+				A10000000000000000000061 /* Sources */,
+				A10000000000000000000062 /* Frameworks */,
+				A10000000000000000000063 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A10000000000000000000024 /* NavinxWidgets */,
+			);
+			name = NavinxWidgets;
+			packageProductDependencies = (
+				A1000000000000000000E006 /* SharedKit */,
+			);
+			productName = NavinxWidgets;
+			productReference = A10000000000000000000014 /* NavinxWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2720;
+				LastUpgradeCheck = 2720;
+				TargetAttributes = {
+					A10000000000000000000101 = {
+						CreatedOnToolsVersion = 27.2;
+					};
+					A10000000000000000000102 = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = A10000000000000000000101;
+					};
+					A10000000000000000000103 = {
+						CreatedOnToolsVersion = 27.2;
+						TestTargetID = A10000000000000000000101;
+					};
+					A10000000000000000000104 = {
+						CreatedOnToolsVersion = 27.2;
+					};
+				};
+			};
+			buildConfigurationList = A10000000000000000000200 /* Build configuration list for PBXProject "Navinx" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A10000000000000000000002;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A10000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000000000000000000101 /* Navinx */,
+				A10000000000000000000102 /* NavinxTests */,
+				A10000000000000000000103 /* NavinxUITests */,
+				A10000000000000000000104 /* NavinxWidgets */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000000000000000000033 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000043 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000053 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000063 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000031 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000041 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A10000000000000000000061 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1000000000000000000D001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10000000000000000000101 /* Navinx */;
+			targetProxy = A1000000000000000000C001 /* PBXContainerItemProxy */;
+		};
+		A1000000000000000000D002 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10000000000000000000101 /* Navinx */;
+			targetProxy = A1000000000000000000C002 /* PBXContainerItemProxy */;
+		};
+		A1000000000000000000D003 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10000000000000000000104 /* NavinxWidgets */;
+			targetProxy = A1000000000000000000C003 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A10000000000000000000301 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 892CT5GVGH;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A10000000000000000000302 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 892CT5GVGH;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A10000000000000000000311 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Violet AppIcon-Teal AppIcon-Amber AppIcon-Graphite";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Navinx.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Navinx-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Navinx;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A10000000000000000000312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES = "AppIcon-Violet AppIcon-Teal AppIcon-Amber AppIcon-Graphite";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Navinx.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Navinx-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Navinx;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		A10000000000000000000321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navinx.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navinx";
+			};
+			name = Debug;
+		};
+		A10000000000000000000322 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Navinx.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Navinx";
+			};
+			name = Release;
+		};
+		A10000000000000000000331 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Navinx;
+			};
+			name = Debug;
+		};
+		A10000000000000000000332 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.uitests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Navinx;
+			};
+			name = Release;
+		};
+		A10000000000000000000341 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/NavinxWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/NavinxWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Navinx;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		A10000000000000000000342 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Config/NavinxWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/NavinxWidgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Navinx;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cybinx.navinx.app.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000000000000000000200 /* Build configuration list for PBXProject "Navinx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000301 /* Debug */,
+				A10000000000000000000302 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000201 /* Build configuration list for PBXNativeTarget "Navinx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000311 /* Debug */,
+				A10000000000000000000312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000202 /* Build configuration list for PBXNativeTarget "NavinxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000321 /* Debug */,
+				A10000000000000000000322 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000203 /* Build configuration list for PBXNativeTarget "NavinxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000331 /* Debug */,
+				A10000000000000000000332 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000204 /* Build configuration list for PBXNativeTarget "NavinxWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000341 /* Debug */,
+				A10000000000000000000342 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A1000000000000000000E001 /* SubsonicKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SubsonicKit;
+		};
+		A1000000000000000000E002 /* PlaybackKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PlaybackKit;
+		};
+		A1000000000000000000E003 /* Lyrics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Lyrics;
+		};
+		A1000000000000000000E004 /* HubKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HubKit;
+		};
+		A1000000000000000000E005 /* SharedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedKit;
+		};
+		A1000000000000000000E006 /* SharedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SharedKit;
+		};
+		A1000000000000000000E007 /* DeviceIdentity */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeviceIdentity;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = A10000000000000000000001 /* Project object */;
+}

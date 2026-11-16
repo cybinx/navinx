@@ -1,0 +1,61 @@
+{
+  "v": 1,
+  "id": "main",
+  "title": "Extra",
+  "tab": {
+    "title": "Extra",
+    "symbol": "no.such.symbol"
+  },
+  "future": {
+    "anything": true
+  },
+  "sections": [
+    {
+      "id": "one",
+      "card": "glass",
+      "layout": "grid",
+      "parts": [
+        {
+          "type": "chart",
+          "id": "later",
+          "points": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "type": "text",
+          "id": "kept",
+          "text": "Still here",
+          "style": "headline",
+          "tint": "purple",
+          "font": "x"
+        },
+        {
+          "type": "button",
+          "id": "go",
+          "label": "Go",
+          "style": "glow",
+          "action": {
+            "id": "go",
+            "extra": 1
+          }
+        },
+        {
+          "type": "row",
+          "id": "r",
+          "title": "Row",
+          "symbol": "circle",
+          "tint": "accent",
+          "badge": 3
+        }
+      ]
+    },
+    {
+      "id": "two",
+      "card": "frosted",
+      "parts": []
+    }
+  ]
+}
