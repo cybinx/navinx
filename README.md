@@ -1,6 +1,6 @@
 # Navinx
 
-Navinx is a free iPhone music player for your own Navidrome or Subsonic server. It supplies no music and has no accounts of its own: you sign in to your server with the login you already have there, and Navinx plays what is on it.
+Navinx is a free iPhone music player for your own Navidrome or Subsonic server. This app was completely built by AI but architected by a human. It supplies no music and has no accounts of its own: you sign in to your server with the login you already have there, and Navinx plays what is on it.
 
 This repository holds the app's source and its website.
 
