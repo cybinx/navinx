@@ -61,8 +61,14 @@ struct NavinxApp: App {
         let network = NetworkMonitor()
         player.isOnMobileData = { network.isOnMobileData }
         network.onChange = { player.refreshTranscoding() }
-        // Leaving home Wi-Fi with the app open: off the LAN address that no longer answers.
-        network.onPathChange = { account.networkChanged() }
+        // Leaving home Wi-Fi with the app open: off the LAN address that no longer answers. Any new path
+        // (or one back after none): fresh connections, and a song that failed for the network's sake is
+        // loaded again (C68, D225).
+        player.isNetworkAvailable = { network.isConnected }
+        network.onPathChange = {
+            account.networkChanged()
+            player.networkReturned()
+        }
         // Smart Downloads (C37): Wi-Fi only, after the user's own downloads, a catch-up at every connection.
         smartDownloads.allowsNetwork = { network.allowsAutomaticDownloads }
         smartDownloads.currentSongID = { player.currentSong?.id }
@@ -135,7 +141,11 @@ struct NavinxApp: App {
 ///   (C38: the simulator can't translate); `-UITestLyricsPage`: now playing opens on its lyrics page.
 /// - `-UITestDuoFoldCycle`: on a display with the Duo's side rail, the mini-player folds, unfolds, folds
 ///   and unfolds, 3 s apart, as a page scrolled down and back would (C30 bug 19's films).
+/// - `-UITestStillVolume`: now playing's volume row draws a still copy of the dressed bar at 60% in place
+///   of Apple's slider, which the simulator doesn't draw (C67: the store's pictures).
 enum UITestHooks {
+    static let stillVolume = ProcessInfo.processInfo.arguments.contains("-UITestStillVolume")
+
     @MainActor
     static func foldIfAsked(player: PlayerModel, chrome: DuoChrome) async {
         guard ProcessInfo.processInfo.arguments.contains("-UITestDuoFoldCycle") else { return }
@@ -203,7 +213,7 @@ enum UITestHooks {
             ReplayGainSettings.modeKey, ReplayGainSettings.preampKey, ReplayGainSettings.preventsClippingKey,
             ReplayGainSettings.fallbackKey, TranscodingSettings.enabledKey, TranscodingSettings.wifiBitRateKey,
             TranscodingSettings.mobileBitRateKey, TranscodingSettings.formatKey, AppearanceModel.themeKey,
-            AppearanceModel.accentKey, PinnedPlaylistsModel.showOnHomeKey,
+            AppearanceModel.accentKey, PinnedPlaylistsModel.showOnHomeKey, LyricsSettings.lrclibFallback,
             CrossfadeSettings.secondsKey, FadeSettings.enabledKey, FadeSettings.durationKey,
             RefillSettings.modeKey, RefillSettings.refillCountKey, RefillSettings.lastModeKey,
             PlayerDisplayOptions.showsRatingStars, SmartDownloads.enabledKey, SmartDownloads.answersKey,

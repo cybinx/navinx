@@ -459,10 +459,12 @@ final class AccountModel {
         await connectAndVerify(profile, password: password, ticket: ticket)
     }
 
-    /// The network changed (home Wi-Fi left or joined, say): for a server with a LAN address, the LAN
-    /// or main address is chosen again and the client swapped if it changed. No connecting screen,
-    /// and the player and downloads follow the new address (`RootView`).
+    /// The network changed (home Wi-Fi left or joined, say): the long-lived sessions start new connections,
+    /// as on a certificate change, so nothing new goes onto one the old path left dead (C68, D225). For a
+    /// server with a LAN address, the LAN or main address is chosen again and the client swapped if it
+    /// changed. No connecting screen, and the player and downloads follow the new address (`RootView`).
     func networkChanged() {
+        devices?.certificates?.resetConnections()
         guard active?.homeNetworkURL?.trimmingCharacters(in: .whitespaces).isEmpty == false else { return }
         networkCheck?.cancel()
         networkCheck = Task { [weak self] in await self?.chooseAddressAgain() }

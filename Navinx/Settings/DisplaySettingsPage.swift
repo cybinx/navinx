@@ -228,7 +228,8 @@ private struct AppIconPicker: View {
     private let icons = AppIconModel.shared
 
     var body: some View {
-        HStack(alignment: .top, spacing: 10) {
+        // Four to a row since D235 (seven icons don't fit one row).
+        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10, alignment: .top), count: 4), spacing: 14) {
             ForEach(AppIconChoice.allCases) { choice in
                 tile(choice)
             }
@@ -258,7 +259,12 @@ private struct AppIconPicker: View {
                     .clipShape(IconTileShape())
                     .padding(4.5)
                     .overlay {
-                        if isSelected { IconTileShape().strokeBorder(Palette.accent, lineWidth: 2.5) }
+                        if isSelected {
+                            IconTileShape().strokeBorder(Palette.accent, lineWidth: 2.5)
+                        } else {
+                            // A hairline, so White's tile has an edge on a light page and Black's on a dark one.
+                            IconTileShape().inset(by: 4.5).strokeBorder(Color.primary.opacity(0.15), lineWidth: 0.5)
+                        }
                     }
                     .frame(maxWidth: 64)
                 Text(choice.title)

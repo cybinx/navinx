@@ -32,7 +32,8 @@ final class NowPlayingPagesUITests: XCTestCase {
         let isDuo = env["NAVINX_DUO"] != nil
 
         app = XCUIApplication()
-        app.launchArguments = ["-UITestReset"]
+        // LRCLIB already allowed (D179), so a song with no lyrics doesn't stop the walk with the question.
+        app.launchArguments = ["-UITestReset", "-lrclib_fallback", "YES"]
         app.launch()
         signIn(login)
         playAlbum()
@@ -431,7 +432,7 @@ final class NowPlayingPagesUITests: XCTestCase {
         backButton.tap()
         sleep(1)
 
-        // A song the server has no lyrics for (D199): the page says so.
+        // A song LRCLIB doesn't have (D44): no lyrics, rather than another song's.
         goToSong(named: "Brand New Jeep")
         app.buttons["nowPlayingLyrics"].tap()
         XCTAssert(none.waitForExistence(timeout: 25), "a song with no lyrics anywhere should say so")

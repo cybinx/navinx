@@ -127,7 +127,7 @@ struct LiveSpeedTests {
         engine.onEvent = { event in
             switch event {
             case .buffering(let buffering): isBuffering = buffering
-            case .failed(let message): failure = message
+            case .failed(let message, _): failure = message
             case .position(let seconds) where seconds > 0 && !isBuffering: ticks.append((clock.now, seconds))
             default: break
             }

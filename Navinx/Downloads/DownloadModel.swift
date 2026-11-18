@@ -97,7 +97,7 @@ final class DownloadModel {
         self.defaults = defaults
         self.offlineCovers = offlineCovers
         fetchLyrics = lyrics ?? { song, client in
-            await LyricsLoader(client: client)
+            await LyricsLoader(client: client, lrclib: .shared, usesLRCLib: { LyricsSettings.usesLRCLib })
                 .remoteLines(client: client, songID: song.id, artist: song.artist, title: song.title)
         }
     }

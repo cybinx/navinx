@@ -1,12 +1,13 @@
 import PlaybackKit
 import SwiftUI
 
-/// Flutter `SettingsPlaybackTab`: Auto DJ, crossfade, gapless, fade in/out, ReplayGain and the
-/// streaming quality, in Flutter's order, with Resume Across Devices (C36) after gapless. Flutter's
-/// lyrics lookup switch is gone: lyrics come only from the user's own server (D199).
+/// Flutter `SettingsPlaybackTab`: Auto DJ, crossfade, gapless, fade in/out, LRCLIB, ReplayGain and
+/// the streaming quality, in Flutter's order, with Resume Across Devices (C36) after gapless.
 struct PlaybackSettingsPage: View {
     @Environment(PlayerModel.self) private var player
 
+    /// Off until answered (D179); a flip here is the answer, so the lyrics page never asks.
+    @AppStorage(LyricsSettings.lrclibFallback) private var usesLRCLib = false
     @AppStorage(ReplayGainSettings.modeKey) private var gainChoice = ReplayGainSettings.Mode.off.rawValue
     @AppStorage(ReplayGainSettings.preampKey) private var preamp = 0.0
     @AppStorage(ReplayGainSettings.preventsClippingKey) private var preventsClipping = true
@@ -41,6 +42,13 @@ struct PlaybackSettingsPage: View {
                 ) { SettingsGlyph.accent("laptopcomputer.and.iphone") }
             }
             fade
+            SettingsSection(title: "LYRICS") {
+                SettingsSwitchRow(
+                    title: "Fetch lyrics from LRCLIB",
+                    subtitle: "Automatically search LRCLIB for lyrics when your server does not provide them",
+                    isOn: $usesLRCLib
+                ) { SettingsGlyph.accent("text.quote") }
+            }
             replayGain
             streamingQuality
         }

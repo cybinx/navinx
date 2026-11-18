@@ -4,7 +4,7 @@ title: Privacy Policy
 
 # Privacy Policy
 
-*Last updated: 15 November 2026*
+*Last updated: 18 November 2026*
 
 Navinx is a music player for your own Navidrome or Subsonic server. It's built to keep your data between you and your server.
 
@@ -46,7 +46,7 @@ These go to the server for its owner to approve. The server answers with a certi
 
 Navinx keeps these on your iPhone:
 
-- your saved servers (address, user name, name) and your settings;
+- your saved servers (address, user name, name) and your settings, including your answer about LRCLIB (below);
 - the servers' passwords, in the iOS Keychain;
 - if a server approves devices: the device's key and certificate (Keychain) and the state of its request;
 - if a server's add-on uses App Attest: the ID of the key iOS holds for it (Keychain);
@@ -74,7 +74,9 @@ The developer holds nothing about you, so there is nothing for the developer to 
 
 ## Lyrics
 
-Navinx shows the lyrics your server has, and asks no other service for them. When your server has none for a song, the lyrics page says so.
+Navinx can look up lyrics your server doesn't have on the public lyrics service LRCLIB (lrclib.net). This is off until you say yes: the first time the lyrics page shows a song your server has no lyrics for, Navinx asks once whether to look them up online, and remembers your answer. Until you say yes, nothing is sent to LRCLIB. Once you do, Navinx asks LRCLIB about every song your server has no lyrics for, in two cases: each song that plays while Now Playing is open (on any of its pages, not only the lyrics), and each song you download. An answer is remembered for as long as Navinx runs, so the same song isn't asked about twice meanwhile.
+
+Navinx sends LRCLIB the **artist name and song title**, and names itself as Navinx; nothing about you or your server. Like any web service, LRCLIB also sees your iPhone's IP address. How LRCLIB handles that is up to LRCLIB. You can change your answer at any time in Settings → Playback → "Fetch lyrics from LRCLIB".
 
 **Translation.** Lyrics are translated on your iPhone by Apple's own translation. The lyrics aren't sent anywhere. If a language isn't on your iPhone yet, iOS offers to download it from Apple.
 

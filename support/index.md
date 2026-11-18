@@ -40,7 +40,7 @@ Some servers only let in devices their owner has approved. If yours does, Navinx
 
 ## Lyrics
 
-Navinx shows the lyrics your server has, and asks no other service for them. If a song has none, add them on the server: Navidrome reads lyrics stored in a song's tags and `.lrc` files kept beside the songs.
+Navinx shows the lyrics your server has. When it has none for a song, the lyrics page asks once, "Look for lyrics online?", whether to look them up on the public service LRCLIB (lrclib.net); only the artist and song title are sent. Once you say yes, Navinx asks LRCLIB about each song your server has no lyrics for, while Now Playing is open and when you download it. You can change your answer at any time in **Settings → Playback → "Fetch lyrics from LRCLIB"**.
 
 ## Downloads and storage
 

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Indigo-Light.png",
+      "filename" : "White-Light.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "Indigo-Dark.png",
+      "filename" : "White-Dark.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "Indigo-Tinted.png",
+      "filename" : "White-Tinted.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

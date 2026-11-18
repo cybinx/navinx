@@ -148,7 +148,8 @@ struct RoutePickerButton: UIViewRepresentable {
 /// The slider is Apple's own `MPVolumeView` (C59): iOS has no other way to set the system's volume, and
 /// while it's on screen the system's volume overlay stays away by itself. Since C60 it wears the look
 /// of the scrubber above it through its public image and rect hooks (`VolumeTrackLook`). The simulator
-/// draws no slider in it, so the row keeps its height there with nothing in it.
+/// draws no slider in it ("No Volume Available"), so the store's pictures ask for a still copy of the
+/// dressed bar instead (`-UITestStillVolume`, debug builds only).
 struct VolumeBar: View {
     /// The space between each speaker's drawn shape and the bar, the same on both sides (C66).
     private static let gap: CGFloat = 12
@@ -163,15 +164,31 @@ struct VolumeBar: View {
         HStack(spacing: 0) {
             speaker("speaker.fill")
                 .padding(.trailing, Self.gap - Self.quietInset)
-            SystemVolumeSlider()
-                // Reaches past the row on both sides by the slider's own margins, which hold nothing,
-                // so the bar that shows is as long as the row (`VolumeTrackLook`).
-                .padding(.horizontal, -VolumeTrackLook.overhang)
+            slider
                 .frame(maxWidth: .infinity)
                 .frame(height: 30)
             speaker("speaker.wave.3.fill")
                 .padding(.leading, Self.gap - Self.loudInset)
         }
+    }
+
+    @ViewBuilder private var slider: some View {
+        #if DEBUG
+        if UITestHooks.stillVolume {
+            StillVolumeTrack()
+        } else {
+            systemSlider
+        }
+        #else
+        systemSlider
+        #endif
+    }
+
+    private var systemSlider: some View {
+        SystemVolumeSlider()
+            // Reaches past the row on both sides by the slider's own margins, which hold nothing,
+            // so the bar that shows is as long as the row (`VolumeTrackLook`).
+            .padding(.horizontal, -VolumeTrackLook.overhang)
     }
 
     private func speaker(_ name: String) -> some View {
@@ -182,6 +199,26 @@ struct VolumeBar: View {
             .accessibilityHidden(true)
     }
 }
+
+#if DEBUG
+/// The dressed bar at rest, drawn still at 60% (`-UITestStillVolume`): as long as the row, on its
+/// middle, white up to the fill's square end and faint white after it, as `VolumeTrackLook` dresses it.
+private struct StillVolumeTrack: View {
+    var body: some View {
+        GeometryReader { proxy in
+            Capsule()
+                .fill(.white.opacity(VolumeTrackLook.remainderOpacity))
+                .overlay(alignment: .leading) {
+                    Rectangle().fill(.white).frame(width: proxy.size.width * 0.6)
+                }
+                .clipShape(Capsule())
+                .frame(height: VolumeTrackLook.restingThickness)
+                .frame(maxHeight: .infinity)
+        }
+        .accessibilityHidden(true)
+    }
+}
+#endif
 
 /// The `VolumeBar`'s slider: a `VolumeSwell` holding a `DressedVolumeView`. It's kept to the 30 pt the
 /// old bar had, so nothing else on now playing moves.

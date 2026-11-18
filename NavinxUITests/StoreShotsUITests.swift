@@ -1,23 +1,30 @@
 import XCTest
 
-/// The App Store's pictures (C51), taken against the demo server as its reviewer account: Home, an
-/// album, now playing, the queue, the Library, an artist, Search and the downloads, numbered in the
-/// store's order. Run by `Config/store-shots.sh`, which writes the login file outside the repo, sets
-/// the status bar and runs it once per appearance; see `README.md`. Skipped without
-/// `TEST_RUNNER_NAVINX_LIVE`.
+/// The App Store's pictures (C51, redone after C61), taken against the demo server as its ordinary
+/// account `demo`: Home, an album, now playing, the Library, Search and the lyrics (or the queue,
+/// when no demo song has lyrics), numbered in the store's order. Run by `Config/store-shots.sh`,
+/// which writes the login file outside the repo, sets the status bar and runs it; see `README.md`.
+/// Skipped without `TEST_RUNNER_NAVINX_LIVE`.
 ///
-/// It plays songs (now-playing and play counts on the demo server, which the reviewer account may
-/// write) and downloads one album to the simulator; nothing else is written. The sign-in screen and
-/// now playing's placeholder art are kept out (both show the logo), as are About, errors,
-/// spinners and empty states.
+/// It plays songs (now-playing and play counts on the demo server) and downloads one album to the
+/// simulator; nothing else is written. Only the two CC0 albums are opened, so no picture needs a
+/// credit except what Home shows on its own. Kept out: the sign-in screen and Settings (both show
+/// the server's address), errors, spinners and empty states.
 final class StoreShotsUITests: XCTestCase {
-    private struct Login: Decodable { let url: String; let username: String; let password: String }
+    private struct Login: Decodable {
+        let url: String
+        let username: String
+        let password: String
+        /// A demo song with lyrics, found by the script, if there is one.
+        let lyrics: Lyrics?
+        struct Lyrics: Decodable { let song: String }
+    }
 
-    /// The demo server's albums (`Server/demo/README.md`): the cover-led pictures use the CC0 ones.
+    /// The demo server's albums (`Server/demo/README.md`): every picture uses the CC0 ones.
     private enum Demo {
         static let playedAlbum = "Tale on the Late"       // Komiku, CC0
+        static let playedSong = "Friends, 2018"
         static let downloadedAlbum = "Relaxing Ukulele"   // Monplaisir, CC0
-        static let artist = "Komiku"
         static let searchWord = "Komiku"
         /// For `testListeningHistory`: one song from each of six albums.
         static let historyAlbums = [
@@ -29,7 +36,6 @@ final class StoreShotsUITests: XCTestCase {
     private var app: XCUIApplication!
     private var login: Login!
     private var shots: URL?
-    private var prefix = ""
 
     override func setUpWithError() throws {
         continueAfterFailure = false
@@ -40,7 +46,6 @@ final class StoreShotsUITests: XCTestCase {
             shots = URL(filePath: dir)
             try? FileManager.default.createDirectory(at: shots!, withIntermediateDirectories: true)
         }
-        prefix = env["NAVINX_SHOT_PREFIX"] ?? ""
     }
 
     // MARK: The pictures
@@ -49,49 +54,43 @@ final class StoreShotsUITests: XCTestCase {
     func testStorePictures() throws {
         start()
 
-        // An album page, then its songs playing.
-        openAlbum(Demo.playedAlbum)
-        settle(4)
-        shot("02-album")
-        app.pagePlayButton.tap()
-        let barTitle = app.staticTexts["playerBarTitle"]
-        XCTAssert(barTitle.waitForExistence(timeout: 15), "nothing started playing")
-        settle(5)
-
-        // Now playing with its cover, then the queue.
-        barTitle.tap()
-        XCTAssert(app.staticTexts["nowPlayingTitle"].waitForExistence(timeout: 5), "now playing didn't open")
-        settle(4)
-        shot("03-now-playing")
-        let queue = app.buttons["nowPlayingQueue"]
-        XCTAssert(queue.waitForExistence(timeout: 3))
-        queue.tap()
-        XCTAssert(app.staticTexts["Up Next"].waitForExistence(timeout: 5), "the queue page didn't show")
-        settle(3)
-        shot("04-queue")
-        nowPlayingButton("Back").tap()
-        settle(1)
-        nowPlayingButton("Close").tap()
-        XCTAssert(app.staticTexts["nowPlayingTitle"].waitForNonExistence(timeout: 5))
-        goBack()
-
-        // The album to show downloaded, fetched while the other pictures are taken.
+        // The album for the Library's Downloaded Songs, fetched while the other pictures are taken.
         openAlbum(Demo.downloadedAlbum)
         button("Download album").waitAndTap()
+        settle(2)
 
-        // An artist, through Search: the Library lists no artists since D210.
-        XCTAssert(app.openSearchResult(Demo.artist, filter: "Artists"), "no artist called \(Demo.artist)")
-        XCTAssert(app.buttons["Add to Queue"].waitForExistence(timeout: 10), "the artist page didn't load")
+        // An album page, one of its songs playing (a short title: a long one scrolls on now playing).
+        // Playing first also replaces the queue the server kept from the last session.
+        openAlbum(Demo.playedAlbum)
+        let song = app.staticTexts.matching(NSPredicate(format: "label == %@", Demo.playedSong))
+            .allElementsBoundByIndex.first { $0.isHittable }
+        XCTAssertNotNil(song, "no \(Demo.playedSong) on the album page")
+        song?.tap()
+        let barTitle = app.staticTexts["playerBarTitle"]
+        XCTAssert(barTitle.waitForLabel(Demo.playedSong, timeout: 15), "\(Demo.playedSong) didn't play")
+        settle(5)
+        shot("02-album")
+
+        // Now playing with its cover, playing (the download can pause it).
+        openNowPlaying()
+        let playPause = app.buttons["nowPlayingPlayPause"]
+        if playPause.waitForExistence(timeout: 3), playPause.label == "Play" { playPause.tap() }
         settle(4)
-        shot("06-artist")
+        shot("03-now-playing")
+        if login.lyrics == nil {
+            // No demo song has lyrics: the queue instead.
+            app.buttons["nowPlayingQueue"].waitAndTap(timeout: 3)
+            XCTAssert(app.staticTexts["Up Next"].waitForExistence(timeout: 5), "the queue page didn't show")
+            settle(3)
+            shot("06-queue")
+            nowPlayingButton("Back").tap()
+            settle(1)
+        }
+        closeNowPlaying()
         goBack()
 
-        // The Library.
-        app.selectTab("Library")
-        settle(3)
-        shot("05-library")
-
-        // Search, with results.
+        // Search, with results under "Songs": its top result has a cover, where "All"'s is the
+        // artist, whose picture the demo server doesn't have.
         XCTAssert(app.selectTab("Search"), "no Search tab")
         let field = app.searchFields.firstMatch
         XCTAssert(field.waitForExistence(timeout: 5))
@@ -99,33 +98,51 @@ final class StoreShotsUITests: XCTestCase {
         if let old = field.value as? String, !old.isEmpty, old != field.placeholderValue {
             field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: old.count))
         }
-        button("All").tapIfThere()
-        field.typeText(Demo.searchWord)
+        field.typeText(Demo.searchWord + "\n")
+        button("Songs").waitAndTap(timeout: 10)
         XCTAssert(app.staticTexts["Top result"].waitForExistence(timeout: 15), "no results for \(Demo.searchWord)")
-        app.keyboards.buttons["Search"].firstMatch.tapIfThere()
-        app.keyboards.buttons["search"].firstMatch.tapIfThere()
         settle(4)
-        shot("07-search")
+        shot("05-search")
 
-        // The downloads, once the album is in.
-        app.selectTab("Library")
+        // The Library, once the album is in.
+        XCTAssert(app.selectTab("Library"), "no Library tab")
         let downloaded = app.staticTexts["Downloaded Songs"].firstMatch
         XCTAssert(downloaded.waitForExistence(timeout: 10), "no Downloaded Songs row")
         downloaded.tap()
-        app.buttons["Albums"].firstMatch.waitAndTap()
         XCTAssert(
-            app.buttons.matching(NSPredicate(format: "label == %@", Demo.downloadedAlbum)).firstMatch
+            app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Monplaisir")).firstMatch
                 .waitForExistence(timeout: 180),
             "\(Demo.downloadedAlbum) never finished downloading")
-        settle(4)
-        shot("08-downloads")
         goBack()
+        settle(3)
+        shot("04-library")
 
-        // Home last, with the songs just played.
+        // Home, with the songs just played.
         XCTAssert(app.selectTab("Home"), "no Home tab")
         app.selectTab("Home")  // a second tap scrolls it to the top
-        settle(5)
+        settle(6)
         shot("01-home")
+
+        // Last, so no other picture shows its song: the lyrics of the song that has them.
+        if let lyrics = login.lyrics {
+            XCTAssert(app.openSearchResult(lyrics.song, filter: "Songs"), "no song called \(lyrics.song)")
+            XCTAssert(app.staticTexts["playerBarTitle"].waitForLabel(lyrics.song, timeout: 15), "\(lyrics.song) didn't play")
+            settle(3)
+            openNowPlaying()
+            app.buttons["nowPlayingLyrics"].waitAndTap()
+            let list = app.descendants(matching: .any)["lyricsList"].firstMatch
+            XCTAssert(list.waitForExistence(timeout: 25), "no lyrics for \(lyrics.song)")
+            settle(2)
+            // Unsynced lyrics start low on the page, after the file's tag lines: bring the verse up.
+            for (from, to) in [(0.85, 0.35), (0.85, 0.45)] {
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: from)).press(
+                    forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: to)),
+                    withVelocity: .slow, thenHoldForDuration: 0.5)
+                settle(1)
+            }
+            settle(4)
+            shot("06-lyrics")
+        }
     }
 
     /// Run once, only if Home looks thin for want of history (`Config/store-shots.sh --history`):
@@ -151,11 +168,12 @@ final class StoreShotsUITests: XCTestCase {
 
     // MARK: Steps
 
-    /// A fresh app, signed in.
+    /// A fresh app, signed in, with LRCLIB left unasked and off.
     @MainActor
     private func start() {
         app = XCUIApplication()
-        app.launchArguments = ["-UITestReset"]
+        // The simulator draws no volume slider: a still copy of the phone's stands in (C67).
+        app.launchArguments = ["-UITestReset", "-UITestStillVolume", "-lrclib_fallback", "NO"]
         app.launch()
         XCTAssert(app.buttons["connect"].waitForExistence(timeout: 10))
         for (field, text) in [
@@ -182,6 +200,18 @@ final class StoreShotsUITests: XCTestCase {
         // Through Search: the Library lists no albums since D210.
         XCTAssert(app.openAlbumFromSearch(name), "no album called \(name)")
         XCTAssert(app.buttons["Search in album"].waitForExistence(timeout: 10), "the album page didn't load")
+    }
+
+    @MainActor
+    private func openNowPlaying() {
+        app.staticTexts["playerBarTitle"].waitAndTap(timeout: 10)
+        XCTAssert(app.staticTexts["nowPlayingTitle"].waitForExistence(timeout: 5), "now playing didn't open")
+    }
+
+    @MainActor
+    private func closeNowPlaying() {
+        nowPlayingButton("Close").tap()
+        XCTAssert(app.staticTexts["nowPlayingTitle"].waitForNonExistence(timeout: 5))
     }
 
     @MainActor
@@ -214,7 +244,7 @@ final class StoreShotsUITests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
         if let shots {
-            try? screenshot.pngRepresentation.write(to: shots.appending(path: "\(prefix)\(name).png"))
+            try? screenshot.pngRepresentation.write(to: shots.appending(path: "\(name).png"))
         }
     }
 }
@@ -229,5 +259,16 @@ private extension XCUIElement {
     @MainActor
     func tapIfThere() {
         if exists, isHittable { tap() }
+    }
+
+    /// Waits until the element's label is `label`.
+    @MainActor
+    func waitForLabel(_ label: String, timeout: TimeInterval) -> Bool {
+        let deadline = Date.now.addingTimeInterval(timeout)
+        repeat {
+            if exists, self.label == label { return true }
+            Thread.sleep(forTimeInterval: 0.5)
+        } while Date.now < deadline
+        return false
     }
 }

@@ -102,6 +102,9 @@ public final class PlayerModel {
     @ObservationIgnored public var favouriteGenres: @MainActor (Int) -> [String] = { _ in [] }
     /// Called when a queue saved by another device has been taken (C36): the app shows its toast.
     @ObservationIgnored public var onQueueTaken: (@MainActor () -> Void)?
+    /// Whether there's a network path now (C68): a song failing without one failed for a network reason.
+    /// The app hands in its `NetworkMonitor`'s; tests hand in what they like.
+    @ObservationIgnored public var isNetworkAvailable: @MainActor () -> Bool = { true }
 
     @ObservationIgnored private let engine: any AudioEngine
     @ObservationIgnored private let store: PlayerStore
@@ -120,6 +123,13 @@ public final class PlayerModel {
     @ObservationIgnored private var queuedCrossfade: Crossfade?
     /// The engine's song failed and it still holds it: Play loads it again rather than playing a dead item.
     @ObservationIgnored private var hasFailed = false
+    /// A song failed for a network reason, loaded again once the network is back (C68, D225).
+    @ObservationIgnored private var recovery = StreamRecovery()
+    /// The wait for that reload: until the network comes back (then `recoveryWaits.settle`), or
+    /// `recoveryWaits.retry` where it seems to be there already.
+    @ObservationIgnored private var recoveryTask: Task<Void, Never>?
+    /// Internal for the tests.
+    @ObservationIgnored var recoveryWaits: (settle: Duration, retry: Duration) = (.seconds(2), .seconds(5))
     @ObservationIgnored private var resumesAfterInterruption = false
     @ObservationIgnored private var pausedByUser = false
     /// When the audio last stopped without being asked to. iOS can pause the player just before it
@@ -243,6 +253,7 @@ public final class PlayerModel {
     /// Offline mode (C10): no server, so only downloaded songs play. Brings back that server's saved
     /// queue the first time, as `connect` does, and keeps plays to send once the server is back.
     public func connectOffline(profileID: String) {
+        callOffRecovery()
         client = nil
         if self.profileID != profileID {
             self.profileID = profileID
@@ -266,6 +277,7 @@ public final class PlayerModel {
         sendsAgain = false
         lastServerSave = nil
         retireCurrent()
+        callOffRecovery()
         endRadio()
         dropRefillFetch()
         callOffEndWait()
@@ -396,6 +408,7 @@ public final class PlayerModel {
     /// Pause, from any source, with the fade-out if it's on (C19): the player shows paused at once
     /// and the sound follows.
     public func pause() {
+        callOffRecovery()
         pausedByUser = true
         resumesAfterInterruption = false
         isPlaying = false
@@ -412,6 +425,7 @@ public final class PlayerModel {
     /// Flutter `stop` (the lock screen's stop command): keeps the queue, back to the song's start.
     public func stop() {
         retireCurrent()
+        callOffRecovery()
         callOffEndWait()
         engine.stop()
         isPlaying = false
@@ -887,6 +901,8 @@ public final class PlayerModel {
     public func handleInterruptionBegan() {
         let justStopped = systemPausedAt.map { now().timeIntervalSince($0) < 1 } ?? false
         guard isPlaying || justStopped else { return }
+        // A reload waiting for the network (C68) waits for the interruption's end instead: Play reloads then.
+        callOffRecovery()
         resumesAfterInterruption = true
         isPlaying = false
         engine.pause()
@@ -904,6 +920,7 @@ public final class PlayerModel {
 
     /// Headphones came out, or the Bluetooth speaker went away: pause (Flutter's "becoming noisy").
     public func handleOutputLost() {
+        callOffRecovery()
         resumesAfterInterruption = false
         pausedByUser = true
         if isPlaying {
@@ -940,6 +957,7 @@ public final class PlayerModel {
         switch event {
         case .position(let seconds):
             position = seconds
+            recovery.played(playQueue.entryID(at: currentIndex), to: seconds)
             // While playing, the place goes to the server every 30 s (C36), and into the phone's own
             // saved queue with it: a phone killed while playing (in the background, say) would
             // otherwise come back at an older place than the server's, and send that older one.
@@ -995,16 +1013,75 @@ public final class PlayerModel {
             } else {
                 endOfQueue()
             }
-        case .failed:
-            // Flutter stops here too, without a message.
+        case .failed(_, let isNetwork):
+            // Flutter stops here too, without a message. The engine reports the stop just before.
+            let wasPlaying = (isPlaying || (systemPausedAt.map { now().timeIntervalSince($0) < 1 } ?? false)) && !pausedByUser
             isSkippingToNext = false
             hasFailed = true
             isPlaying = false
             isLoading = false
             isBuffering = false
+            // For a network reason, it's loaded again once the network is back (C68, D225). Until then it
+            // shows as the network falling behind does, so Pause calls it off.
+            if let entry = playQueue.entryID(at: currentIndex), recovery.failed(
+                entry: entry, at: position, wasPlaying: wasPlaying, isNetwork: isNetwork || !isNetworkAvailable(), now: now()
+            ) {
+                isPlaying = true
+                isLoading = true
+                isBuffering = true
+                waitToRecover(for: isNetworkAvailable() ? recoveryWaits.retry : nil)
+            }
             syncTracker()
             onNowPlayingChange?()
         }
+    }
+
+    // MARK: Getting over a network failure (C68)
+
+    /// The network is back (the app's `NetworkMonitor`): a song that failed for a network reason is
+    /// loaded again where it stopped, after a moment for the new path to settle.
+    public func networkReturned() {
+        guard recovery.isWaiting else { return }
+        waitToRecover(for: recoveryWaits.settle)
+    }
+
+    /// `wait`: nil until the network comes back, which gives up after `StreamRecovery.waitLimit`.
+    private func waitToRecover(for wait: Duration?) {
+        recoveryTask?.cancel()
+        let wait = wait ?? .seconds(StreamRecovery.waitLimit)
+        recoveryTask = Task { [weak self] in
+            try? await Task.sleep(for: wait)
+            guard !Task.isCancelled else { return }
+            self?.recover()
+        }
+    }
+
+    private func recover() {
+        recoveryTask = nil
+        guard recovery.isWaiting else { return }
+        guard hasFailed, recovery.attempt(current: playQueue.entryID(at: currentIndex), now: now()) != nil else {
+            // Too late: stopped, as before C68. Play loads it again.
+            recovery.callOff()
+            isPlaying = false
+            isLoading = false
+            isBuffering = false
+            syncTracker()
+            onNowPlayingChange?()
+            return
+        }
+        // Where it is now: a seek made while it waited moves it.
+        startCurrent(autoplay: true, at: position, keepsListen: true)
+    }
+
+    /// Pause, Stop, a skip, another song, a sign-out or another server: no reload. Leaves `isPlaying`
+    /// to the caller.
+    private func callOffRecovery() {
+        recoveryTask?.cancel()
+        recoveryTask = nil
+        guard recovery.isWaiting else { return }
+        recovery.callOff()
+        isLoading = false
+        isBuffering = false
     }
 
     // MARK: Moving between songs
@@ -1023,6 +1100,7 @@ public final class PlayerModel {
     ) {
         guard let song = currentSong else { return }
         callOffEndWait()
+        callOffRecovery()
         if autoplay {
             // Starting music undoes an earlier pause, as Play does: an interruption can resume it
             // again, and a song ending moves on playing.
@@ -1483,6 +1561,7 @@ public final class PlayerModel {
 
     /// The song is on its way out, however that happened: it counts if it was played enough (D24).
     private func retireCurrent(_ end: ListenEnd = .replaced) {
+        callOffRecovery()
         defer { tracker.clear() }
         guard let songID = tracker.songID else { return }
         if let song = currentSong, song.id == songID {

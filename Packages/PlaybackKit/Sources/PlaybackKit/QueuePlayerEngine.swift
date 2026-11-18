@@ -230,10 +230,12 @@ public final class QueuePlayerEngine: AudioEngine {
                 object: item,
                 queue: .main
             ) { [weak self, weak item] notification in
-                let message = (notification.userInfo?[AVPlayerItemFailedToPlayToEndTimeErrorKey] as? any Error)?.localizedDescription
+                let error = notification.userInfo?[AVPlayerItemFailedToPlayToEndTimeErrorKey] as? any Error
+                let message = error?.localizedDescription
+                let isNetwork = error.map(NetworkTrouble.isNetwork) ?? false
                 Task { @MainActor in
                     if let item, self?.current?.item === item {
-                        self?.fail(message ?? "Playback failed")
+                        self?.fail(message ?? "Playback failed", isNetwork: isNetwork || QueuePlayerEngine.failedOnNetwork(item))
                     }
                 }
             }
@@ -260,7 +262,7 @@ public final class QueuePlayerEngine: AudioEngine {
             onEvent?(.advanced)
             itemDurationChanged(next.item)
             if next.item.status == .failed {
-                fail(next.item.error?.localizedDescription ?? "Playback failed")
+                fail(next.item)
             } else {
                 // What that seek's end would have done: a player held for it starts.
                 startIfReady()
@@ -286,7 +288,7 @@ public final class QueuePlayerEngine: AudioEngine {
                 startIfReady()
             }
         case .failed:
-            fail(item.error?.localizedDescription ?? "Playback failed")
+            fail(item)
         default:
             break
         }
@@ -333,12 +335,23 @@ public final class QueuePlayerEngine: AudioEngine {
         }
     }
 
-    private func fail(_ message: String) {
+    /// `item` failed: a network reason where its error, or what it wraps, is the network's, or where the
+    /// app's own feed gave up on the network (C68).
+    private func fail(_ item: AVPlayerItem) {
+        let isNetwork = item.error.map(NetworkTrouble.isNetwork) ?? false
+        fail(item.error?.localizedDescription ?? "Playback failed", isNetwork: isNetwork || Self.failedOnNetwork(item))
+    }
+
+    private static func failedOnNetwork(_ item: AVPlayerItem) -> Bool {
+        StreamFeeder.failedOnNetwork(item.asset)
+    }
+
+    private func fail(_ message: String, isNetwork: Bool) {
         wantsPlay = false
         pendingSeek = nil
         player.pause()
         report(playing: false, buffering: false)
-        onEvent?(.failed(message))
+        onEvent?(.failed(message, isNetwork: isNetwork))
     }
 
     // MARK: Starting and seeking

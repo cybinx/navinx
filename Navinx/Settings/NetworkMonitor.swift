@@ -12,7 +12,8 @@ final class NetworkMonitor {
     /// Called on the main actor when `isOnMobileData` changes.
     @ObservationIgnored var onChange: (() -> Void)?
     /// Called on the main actor when the path changes while there's a network (another Wi-Fi, or
-    /// mobile data): the server's LAN address is tried again. Not for the first path, at launch.
+    /// mobile data, or back after none): fresh connections, the server's LAN address tried again, and a
+    /// song that failed for the network's sake loaded again (C68). Not for the first path, at launch.
     @ObservationIgnored var onPathChange: (() -> Void)?
     @ObservationIgnored private var hasSeenPath = false
     /// Smart Downloads may run (C37): a path is known and it's Wi-Fi or a cable, not mobile data, Low

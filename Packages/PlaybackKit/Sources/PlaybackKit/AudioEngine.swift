@@ -11,7 +11,9 @@ public enum AudioEngineEvent: Sendable, Equatable {
     case advanced
     /// The last item finished, with nothing queued after it.
     case ended
-    case failed(String)
+    /// The current item can't play. `isNetwork`: for a network reason (the connection lost, no network,
+    /// C68), which the player gets over by loading the song again once the network is back.
+    case failed(String, isNetwork: Bool = false)
 }
 
 /// How the next song overlaps the current one's end (C19, D88).

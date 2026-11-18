@@ -209,6 +209,35 @@ import Testing
     }
 }
 
+@Suite struct LRCLibCleaningTests {
+    @Test(arguments: [
+        ("Song (Official Video)", "Song"),
+        ("Song [Lyric Video]", "Song"),
+        ("Artist - Song (Remastered 2011)", "Song"),
+        ("Song (feat. Other)", "Song"),
+        ("Song feat. Other", "Song"),
+        ("Song (prod. Someone)", "Song"),
+        ("\"Quoted\" Don't", "Quoted Dont"),
+        ("A - B - C", "B - C"),
+        ("  Spaced    Out ", "Spaced Out"),
+        ("(Official)", "(Official)"),
+    ])
+    func title(raw: String, cleaned: String) {
+        #expect(LRCLibClient.cleanTitle(raw) == cleaned)
+    }
+
+    @Test(arguments: [
+        ("Someone - Topic", "Someone"),
+        ("SomeoneVEVO", "Someone"),
+        ("Someone Official", "Someone"),
+        ("Someone feat. Other", "Someone"),
+        ("Someone", "Someone"),
+    ])
+    func artist(raw: String, cleaned: String) {
+        #expect(LRCLibClient.cleanArtist(raw) == cleaned)
+    }
+}
+
 /// Answers from a table of path → JSON, recording what was asked.
 private final class FakeTransport: HTTPTransport {
     private let answers: [String: String]
@@ -226,16 +255,165 @@ private final class FakeTransport: HTTPTransport {
     }
 }
 
+/// Never answers.
+private final class FailingTransport: HTTPTransport {
+    private let calls = Mutex(0)
+    var count: Int { calls.withLock { $0 } }
+
+    func get(_ url: URL, timeout: TimeInterval) async throws -> (Data, HTTPURLResponse) {
+        calls.withLock { $0 += 1 }
+        throw URLError(.notConnectedToInternet)
+    }
+}
+
+@Suite struct LRCLibClientTests {
+    @Test func exactMatchFirst() async {
+        let transport = FakeTransport(["/api/get": #"{"syncedLyrics":"[00:01.00]sung","plainLyrics":"sung"}"#])
+        let text = await LRCLibClient(transport: transport).search(artist: "Someone", title: "Song (Official Video)")
+        #expect(text == "[00:01.00]sung")
+        #expect(transport.requests.count == 1)
+        #expect(transport.requests[0].absoluteString.contains("artist_name=Someone"))
+        #expect(transport.requests[0].absoluteString.contains("track_name=Song"))
+    }
+
+    @Test func aTitleWithAnArtistInItIsTriedFirst() async {
+        let transport = FakeTransport([:])
+        _ = await LRCLibClient(transport: transport).search(artist: "Tagged", title: "Real - Song")
+        #expect(transport.requests[0].absoluteString.contains("artist_name=Real"))
+        #expect(transport.requests[1].absoluteString.contains("artist_name=Tagged"))
+    }
+
+    @Test func searchPrefersSynced() async {
+        let transport = FakeTransport([
+            "/api/search": #"[{"artistName":"A","trackName":"B","plainLyrics":"plain"},{"artistName":"A","trackName":"B","syncedLyrics":"[00:01.00]timed"}]"#,
+        ])
+        #expect(await LRCLibClient(transport: transport).search(artist: "A", title: "B") == "[00:01.00]timed")
+    }
+
+    @Test func searchFallsBackOnPlain() async {
+        let transport = FakeTransport(["/api/search": #"[{"artistName":"A","trackName":"B","syncedLyrics":"  "},{"artistName":"A","trackName":"B","plainLyrics":"plain"}]"#])
+        #expect(await LRCLibClient(transport: transport).search(artist: "A", title: "B") == "plain")
+    }
+
+    @Test func neverSearchesByTitleAlone() async {
+        let transport = FakeTransport([:])
+        #expect(await LRCLibClient(transport: transport).search(artist: "A", title: "B (Live)") == nil)
+        let queries = transport.requests.filter { $0.path().hasSuffix("search") }
+            .compactMap { URLComponents(url: $0, resolvingAgainstBaseURL: false)?.queryItems?.first?.value }
+        #expect(queries == ["A B"])
+    }
+
+    @Test func noArtistNoRequest() async {
+        let transport = FakeTransport([:])
+        #expect(await LRCLibClient(transport: transport).search(artist: nil, title: "Song") == nil)
+        #expect(await LRCLibClient(transport: transport).search(artist: "", title: "Song") == nil)
+        #expect(transport.requests.isEmpty)
+    }
+
+    @Test func anotherArtistsSongIsNotTaken() async {
+        // Seen live: Cochise's unreleased "I Be Like" against Camidoh's "LIKE I BE".
+        let transport = FakeTransport([
+            "/api/search": #"[{"artistName":"Camidoh","trackName":"LIKE I BE","syncedLyrics":"[00:01.00]wrong"}]"#,
+        ])
+        #expect(await LRCLibClient(transport: transport).search(artist: "Cochise", title: "I Be Like") == nil)
+    }
+
+    @Test func anotherSongByTheArtistIsNotTaken() async {
+        let transport = FakeTransport([
+            "/api/search": #"[{"artistName":"Cochise","trackName":"Tell Em","syncedLyrics":"[00:01.00]wrong"}]"#,
+        ])
+        #expect(await LRCLibClient(transport: transport).search(artist: "Cochise", title: "Unreleased Demo") == nil)
+    }
+
+    @Test(arguments: [
+        ("Cochise", "Bucks", "cochise", "BUCKS", true),
+        ("Cochise & Smino", "Bucks", "Cochise", "Bucks", true),
+        ("Cochise", "Bucks (Remastered 2020)", "Cochise", "Bucks", true),
+        ("Cochise", "Bucks!", "Cochise", "Bucks", true),
+        ("Tyga", "Do My Dance", "Cochise", "Do My Dance", false),
+        ("Cochise", "Jackson", "Cochise", "Bucks", false),
+    ])
+    func sameSong(foundArtist: String, foundTitle: String, artist: String, title: String, same: Bool) {
+        #expect(LRCLibClient.isSameSong(foundArtist, foundTitle, artist: artist, title: title) == same)
+    }
+
+    @Test func aResultWithoutNamesIsNotTaken() {
+        #expect(!LRCLibClient.isSameSong(nil, "B", artist: "A", title: "B"))
+        #expect(!LRCLibClient.isSameSong("A", nil, artist: "A", title: "B"))
+    }
+
+    @Test(arguments: [
+        ("Go", "Gone", false), ("Gone", "Go", false), ("Song", "Song (Part 2)", false),
+        ("Song", "Song - Remastered 2011", true), ("Song", "Song (feat. Other)", true), ("Song - Live", "Song", true),
+        ("Song", "Song", true), ("Don't Stop", "dont stop", true),
+    ])
+    func titlesMatchWholeWords(found: String, asked: String, same: Bool) {
+        #expect(LRCLibClient.isSameSong("A", found, artist: "A", title: asked) == same)
+    }
+
+    @Test func aPlusInANameIsEncoded() async {
+        let transport = FakeTransport(["/api/get": #"{"plainLyrics":"sung"}"#])
+        _ = await LRCLibClient(transport: transport).search(artist: "AC+DC", title: "Back In Black")
+        #expect(transport.requests[0].absoluteString.contains("artist_name=AC%2BDC"))
+    }
+
+    @Test func aMissIsRememberedAndAFailureIsNot() async {
+        let transport = FakeTransport(["/api/search": "[]"])
+        let client = LRCLibClient(transport: transport)
+        #expect(await client.search(artist: "A", title: "B") == nil)
+        let asked = transport.requests.count
+        #expect(asked > 0)
+        #expect(await client.search(artist: "a", title: "B") == nil)
+        #expect(transport.requests.count == asked, "the replay asks nobody")
+
+        let failing = FailingTransport()
+        let offline = LRCLibClient(transport: failing)
+        _ = await offline.search(artist: "A", title: "B")
+        let first = failing.count
+        _ = await offline.search(artist: "A", title: "B")
+        #expect(failing.count == 2 * first, "no answer isn't a miss: it's asked again")
+    }
+
+    @Test func aHitUnderArtistDashTitleIsNotAnotherArtistsAnswer() async {
+        let transport = FakeTransport(["artist_name=Real": #"{"plainLyrics":"real's"}"#])
+        let client = LRCLibClient(transport: transport)
+        #expect(await client.search(artist: "Tagged", title: "Real - Song") == "real's")
+        #expect(await client.search(artist: "Tagged", title: "Song") == nil, "Tagged's own Song isn't Real's")
+    }
+
+    @Test func remembersAnswers() async {
+        let transport = FakeTransport(["/api/get": #"{"plainLyrics":"sung"}"#])
+        let client = LRCLibClient(transport: transport)
+        _ = await client.search(artist: "A", title: "B")
+        #expect(await client.search(artist: "a", title: "B (Live)") == "sung")
+        #expect(transport.requests.count == 1)
+    }
+
+    @Test func noTitleNoRequest() async {
+        let transport = FakeTransport([:])
+        #expect(await LRCLibClient(transport: transport).search(artist: "A", title: "  ") == nil)
+        #expect(transport.requests.isEmpty)
+    }
+
+    @Test func nothingForInstrumentals() async {
+        let transport = FakeTransport([
+            "/api/get": #"{"instrumental":true,"syncedLyrics":null,"plainLyrics":null}"#,
+            "/api/search": "[]",
+        ])
+        #expect(await LRCLibClient(transport: transport).search(artist: "A", title: "B") == nil)
+    }
+}
+
 @Suite struct LyricsLoaderTests {
     private func wrap(_ payload: String) -> String {
         #"{"subsonic-response":{"status":"ok","version":"1.16.1",\#(payload)}}"#
     }
 
-    private func loader(_ answers: [String: String]) throws -> (LyricsLoader, FakeTransport) {
+    private func loader(_ answers: [String: String], usesLRCLib: Bool = true) throws -> (LyricsLoader, FakeTransport) {
         let transport = FakeTransport(answers)
         let config = ServerConfig(serverURL: "http://server.invalid:4533", username: "u", password: "p")
         let client = try SubsonicClient(config: config, coverArtSalt: "salt", transport: transport)
-        return (LyricsLoader(client: client), transport)
+        return (LyricsLoader(client: client, lrclib: LRCLibClient(transport: transport), usesLRCLib: { usesLRCLib }), transport)
     }
 
     @Test func serverStructuredLyricsFirst() async throws {
@@ -267,15 +445,24 @@ private final class FakeTransport: HTTPTransport {
         #expect(await plainOnly.lines(songID: "1", artist: "A", title: "B").map(\.text) == ["plain"])
     }
 
-    @Test func onlyTheServerIsAsked() async throws {
-        // D199: when the server has none, nothing is looked up anywhere else.
-        let (loader, transport) = try loader([
+    @Test func lrclibLast() async throws {
+        let (loader, _) = try loader([
             "getLyricsBySongId": wrap(#""lyricsList":{}"#),
             "getLyrics?": wrap(#""lyrics":{"value":""}"#),
+            "/api/get": #"{"syncedLyrics":"[00:02.00]from lrclib"}"#,
         ])
+        let lines = await loader.lines(songID: "1", artist: "A", title: "B")
+        #expect(lines == [LyricLine(text: "from lrclib", start: 2)])
+    }
+
+    @Test func lrclibCanBeOff() async throws {
+        let (loader, transport) = try loader([
+            "getLyricsBySongId": wrap(#""lyricsList":{}"#),
+            "getLyrics?": wrap(#""lyrics":{}"#),
+            "/api/get": #"{"syncedLyrics":"[00:02.00]from lrclib"}"#,
+        ], usesLRCLib: false)
         #expect(await loader.lines(songID: "1", artist: "A", title: "B").isEmpty)
-        #expect(transport.requests.count == 2)
-        #expect(transport.requests.allSatisfy { $0.host() == "server.invalid" })
+        #expect(!transport.requests.contains { $0.host() == "lrclib.net" })
     }
 
     @Test func nothingAnywhereIsNoLines() async throws {
@@ -299,7 +486,7 @@ private final class FakeTransport: HTTPTransport {
 
     @Test func savedLyricsComeFirstAndAskNobody() async throws {
         let transport = FakeTransport(structured)
-        let loader = LyricsLoader(client: try client(transport), saved: { id in
+        let loader = LyricsLoader(client: try client(transport), lrclib: LRCLibClient(transport: transport), saved: { id in
             id == "1" ? [LyricLine(text: "saved", start: 3)] : nil
         })
         #expect(await loader.lines(songID: "1", artist: "A", title: "B") == [LyricLine(text: "saved", start: 3)])
@@ -308,15 +495,15 @@ private final class FakeTransport: HTTPTransport {
 
     @Test func emptySavedLyricsGoOnToTheServerOnline() async throws {
         let transport = FakeTransport(structured)
-        let loader = LyricsLoader(client: try client(transport), saved: { _ in [] })
+        let loader = LyricsLoader(client: try client(transport), lrclib: LRCLibClient(transport: transport), saved: { _ in [] })
         #expect(await loader.lines(songID: "1", artist: "A", title: "B").map(\.text) == ["from the server"])
     }
 
     @Test func offlineOnlyTheSavedLyrics() async throws {
         let transport = FakeTransport(structured)
-        let saved = LyricsLoader(client: nil, saved: { _ in [LyricLine(text: "saved", start: 0)] })
+        let saved = LyricsLoader(client: nil, lrclib: LRCLibClient(transport: transport), saved: { _ in [LyricLine(text: "saved", start: 0)] })
         #expect(await saved.lines(songID: "1", artist: "A", title: "B").map(\.text) == ["saved"])
-        let none = LyricsLoader(client: nil, saved: { _ in nil })
+        let none = LyricsLoader(client: nil, lrclib: LRCLibClient(transport: transport), saved: { _ in nil })
         #expect(await none.lines(songID: "1", artist: "A", title: "B").isEmpty)
         #expect(transport.requests.isEmpty)
     }

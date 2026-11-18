@@ -5,15 +5,16 @@ import UIKit
 /// The app icon choice (C52, D186; Red out since C54): the options' order and names, and reading iOS's
 /// `alternateIconName` back.
 @Suite struct AppIconTests {
-    @Test func indigoFirstAndTheDefault() {
-        #expect(AppIconChoice.allCases.map(\.title) == ["Indigo", "Violet", "Teal", "Amber", "Graphite"])
-        #expect(AppIconChoice.standard == .indigo)
-        #expect(AppIconChoice.indigo.alternateIconName == nil)
+    @Test func whiteFirstAndTheDefault() {
+        #expect(AppIconChoice.allCases.map(\.title) == ["White", "Black", "Indigo", "Violet", "Teal", "Amber", "Graphite"])
+        #expect(AppIconChoice.standard == .white)
+        #expect(AppIconChoice.white.alternateIconName == nil)
+        #expect(AppIconChoice.indigo.alternateIconName == "AppIcon-Indigo")
     }
 
     @Test func namesMatchTheAssetCatalog() {
         let alternates = AppIconChoice.allCases.compactMap(\.alternateIconName)
-        #expect(alternates == ["AppIcon-Violet", "AppIcon-Teal", "AppIcon-Amber", "AppIcon-Graphite"])
+        #expect(alternates == ["AppIcon-Black", "AppIcon-Indigo", "AppIcon-Violet", "AppIcon-Teal", "AppIcon-Amber", "AppIcon-Graphite"])
         for choice in AppIconChoice.allCases {
             #expect(UIImage(named: choice.previewImageName) != nil, "\(choice.previewImageName) is missing")
         }
@@ -39,30 +40,34 @@ import UIKit
     }
 
     @Test(arguments: [
-        (String?.none, AppIconChoice.indigo),
+        (String?.none, AppIconChoice.white),
+        ("AppIcon-Indigo", .indigo),
+        ("AppIcon-Black", .black),
         ("AppIcon-Violet", .violet),
-        ("AppIcon-Red", .indigo),
+        ("AppIcon-Red", .white),
         ("AppIcon-Graphite", .graphite),
-        ("AppIcon-Unknown", .indigo),
-        ("AppIcon", .indigo),
+        ("AppIcon-Unknown", .white),
+        ("AppIcon", .white),
     ])
     func readsTheSystemsChoiceBack(_ name: String?, _ choice: AppIconChoice) {
         #expect(AppIconChoice.matching(alternateIconName: name) == choice)
     }
 
     /// A tap is judged by what iOS shows at that moment (C54 part 4): with an old Red still showing
-    /// (the retirement refused), Indigo goes through although the picker marks Indigo.
+    /// (the retirement refused), White (the primary) goes through although the picker marks White.
     @Test func aTapIsJudgedByWhatIOSShows() {
-        #expect(AppIconChoice.indigo.needsChange(fromAlternateIconName: "AppIcon-Red"))
+        #expect(AppIconChoice.white.needsChange(fromAlternateIconName: "AppIcon-Red"))
         #expect(AppIconChoice.violet.needsChange(fromAlternateIconName: "AppIcon-Red"))
-        #expect(!AppIconChoice.indigo.needsChange(fromAlternateIconName: nil))
-        #expect(AppIconChoice.indigo.needsChange(fromAlternateIconName: "AppIcon-Teal"))
+        #expect(!AppIconChoice.white.needsChange(fromAlternateIconName: nil))
+        #expect(AppIconChoice.white.needsChange(fromAlternateIconName: "AppIcon-Teal"))
+        // Indigo, the primary icon in 1.0, is an alternate now: a 1.0 phone showing it (nil) gets White.
+        #expect(AppIconChoice.indigo.needsChange(fromAlternateIconName: nil))
         #expect(AppIconChoice.violet.needsChange(fromAlternateIconName: nil))
         for choice in AppIconChoice.allCases {
             #expect(!choice.needsChange(fromAlternateIconName: choice.alternateIconName))
         }
-        // The picker shows Indigo for Red, which is why its own idea can't be the test.
-        #expect(AppIconChoice.matching(alternateIconName: "AppIcon-Red") == .indigo)
+        // The picker shows White for Red, which is why its own idea can't be the test.
+        #expect(AppIconChoice.matching(alternateIconName: "AppIcon-Red") == .white)
     }
 
     /// Red left the choices (C54): a phone still showing it goes back to the primary icon.

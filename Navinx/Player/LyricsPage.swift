@@ -14,8 +14,35 @@ nonisolated enum LyricsSettings {
     static let glowsCurrentLine = "lyrics_glow_effect"
     static let holdsScreenAwake = "lyrics_keep_screen_on"
     static let showsCurrentLineCapsule = "player_show_live_lyric_under_artwork"
+    static let lrclibFallback = "lrclib_fallback"
     /// Now playing's Translate button (C38); not in Flutter.
     static let translate = "lyrics_translate"
+
+    /// Off until the user says yes (D179, unlike Flutter's on by default): the question on the lyrics
+    /// page or the Settings switch. Downloads follow the same answer and never ask.
+    static var usesLRCLib: Bool { usesLRCLib(in: .standard) }
+
+    static func usesLRCLib(in defaults: UserDefaults) -> Bool {
+        LyricsLookupPermission.allows(answer: defaults.object(forKey: lrclibFallback) as? Bool)
+    }
+}
+
+/// Whether lyrics may be looked up on LRCLIB (D179): asked once, the first time the lyrics page shows a
+/// song with none. The answer is `LyricsSettings.lrclibFallback`: absent until asked, then `true` or `false`.
+nonisolated enum LyricsLookupPermission {
+    static let title = "Look for lyrics online?"
+    static let message = "Your server has no lyrics for this song. Navinx can look them up on LRCLIB (lrclib.net), a free public lyrics service. Only the artist and song title are sent. You can change this in Settings → Playback."
+    static let allowTitle = "Look Up Lyrics"
+    static let declineTitle = "Not Now"
+
+    /// Never answered is no.
+    static func allows(answer: Bool?) -> Bool { answer ?? false }
+
+    /// The question shows only on the lyrics page, online, never answered, once the current song's
+    /// lyrics have loaded (`lines` not nil) and came back empty.
+    static func asks(answer: Bool?, isLyricsPageShowing: Bool, lines: [LyricLine]?, linesAreForCurrentSong: Bool, isOnline: Bool) -> Bool {
+        answer == nil && isLyricsPageShowing && isOnline && linesAreForCurrentSong && lines?.isEmpty == true
+    }
 }
 
 /// Flutter's lyrics page in `PageView`: a spinner, "No lyrics available", or the lines.

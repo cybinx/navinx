@@ -22,6 +22,15 @@ struct NowPlayingView: View {
     @AppStorage(LyricsSettings.holdsScreenAwake) private var keepsScreenOn = true
     @AppStorage(LyricsSettings.showsCurrentLineCapsule) private var showsLyricPill = false
     @AppStorage(PlayerDisplayOptions.showsRatingStars) private var showsStarRatings = false
+    /// The lyrics lookup's answer (D179): nil until the user is asked, or flips the Settings switch.
+    @AppStorage(LyricsSettings.lrclibFallback) private var lyricsLookupAnswer: Bool?
+    /// The question is shown at most once for this view, however its conditions come and go.
+    @State private var hasAskedLyricsLookup = false
+    @State private var showsLyricsLookupQuestion = false
+    /// Bumped to load the current song's lyrics again, after a yes to the question.
+    @State private var lyricsReloads = 0
+    /// What `lyrics` were loaded for, so the question waits for the current song's own answer.
+    @State private var lyricsLoadedFor: LoadKey?
 
     /// What `loadCover` has decoded. What's already in memory is drawn without waiting for it
     /// (`NowPlayingCovers`), so the first frame has the cover and the backdrop.
@@ -42,9 +51,27 @@ struct NowPlayingView: View {
     private struct LoadKey: Hashable {
         var id: String?
         var isOnline: Bool
+        /// The lyrics' reloads (`lyricsReloads`); always 0 for the cover.
+        var reload = 0
     }
 
     private var page: Int { scrolledPage ?? 0 }
+
+    private var lyricsKey: LoadKey {
+        LoadKey(id: player.currentSong?.id, isOnline: account.client != nil, reload: lyricsReloads)
+    }
+
+    /// D179: on the lyrics page, the current song's lyrics loaded online and empty, never answered.
+    private var wantsLyricsLookupQuestion: Bool {
+        let key = lyricsKey
+        return LyricsLookupPermission.asks(
+            answer: lyricsLookupAnswer,
+            isLyricsPageShowing: page == 1,
+            lines: lyrics,
+            linesAreForCurrentSong: key.id != nil && lyricsLoadedFor == key,
+            isOnline: key.isOnline
+        )
+    }
 
     /// The cover and the backdrop to draw now: the cached ones for the current song, else the last
     /// ones, which stay up until the new song's are ready.
@@ -82,7 +109,23 @@ struct NowPlayingView: View {
         // Both again when the server comes back (C32): offline, a cover not downloaded has no address and
         // lyrics not saved can't be asked for.
         .task(id: LoadKey(id: player.currentSong?.coverArt, isOnline: account.client != nil)) { await loadCover() }
-        .task(id: LoadKey(id: player.currentSong?.id, isOnline: account.client != nil)) { await loadLyrics() }
+        .task(id: lyricsKey) { [lyricsKey] in await loadLyrics(for: lyricsKey) }
+        // Asked once, the first time the lyrics page has nothing to show (D179). Either answer is saved.
+        .onChange(of: wantsLyricsLookupQuestion, initial: true) { _, wants in
+            guard wants, !hasAskedLyricsLookup else { return }
+            hasAskedLyricsLookup = true
+            showsLyricsLookupQuestion = true
+        }
+        .alert(LyricsLookupPermission.title, isPresented: $showsLyricsLookupQuestion) {
+            Button(LyricsLookupPermission.allowTitle) {
+                lyricsLookupAnswer = true
+                // The same loading again, so this song's lyrics appear without leaving the page.
+                lyricsReloads += 1
+            }
+            Button(LyricsLookupPermission.declineTitle, role: .cancel) { lyricsLookupAnswer = false }
+        } message: {
+            Text(LyricsLookupPermission.message)
+        }
         // Each new lyric is checked for a translation, and translated if the button was left on (C38).
         .onChange(of: lyrics, initial: true) { translation.show(songID: lyricsSongID, lines: lyrics) }
         .onAppear {
@@ -472,22 +515,25 @@ struct NowPlayingView: View {
 
     /// Flutter `_fetchLyrics`, for each new song. The page goes straight to its spinner; Flutter
     /// leaves the last song's lines up until the new ones arrive.
-    private func loadLyrics() async {
+    private func loadLyrics(for key: LoadKey) async {
         guard let song = player.currentSong else {
             lyrics = []
             lyricsSongID = nil
+            lyricsLoadedFor = nil
             return
         }
         // Back online, a song whose lyrics were found keeps them; only one with none asks again.
         if lyricsSongID == song.id, lyrics?.isEmpty == false { return }
         lyrics = nil
         lyricsSongID = song.id
+        lyricsLoadedFor = nil
         // A downloaded song's saved lyrics first; offline, nothing else (C10).
         let saved = downloads.savedLyrics(songID: song.id)
-        let loader = LyricsLoader(client: account.client, saved: { _ in saved })
+        let loader = LyricsLoader(client: account.client, lrclib: .shared, usesLRCLib: { LyricsSettings.usesLRCLib }, saved: { _ in saved })
         let lines = await loader.lines(songID: song.id, artist: song.artist, title: song.title)
         guard !Task.isCancelled else { return }
         lyrics = lines
+        lyricsLoadedFor = key
     }
 
     // MARK: The cover

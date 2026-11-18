@@ -49,10 +49,11 @@ final class SettingsUITests: XCTestCase {
         setTheme("System")
         app.buttons["settingsTab-Playback"].waitAndTap()
 
-        // Playback: gapless is on; ReplayGain's menu next to its row.
+        // Playback: gapless is on, LRCLIB off until answered (D179); ReplayGain's menu next to its row.
         let gapless = app.switches["Gapless Playback"]
         XCTAssert(gapless.waitForExistence(timeout: 5))
         XCTAssertEqual(gapless.value as? String, "1")
+        XCTAssertEqual(app.switches["Fetch lyrics from LRCLIB"].value as? String, "0")
         let anyPreamp = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Preamp: '")).firstMatch
         XCTAssertFalse(anyPreamp.exists, "Off shows no sliders")
         choose("Track", in: "Mode menu", shot: "menu-replaygain")

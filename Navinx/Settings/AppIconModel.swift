@@ -2,17 +2,18 @@ import Observation
 import SwiftUI
 import UIKit
 
-/// Settings → Display → App Icon (C52, D186): the five home screen icons, all the treble clef drawn
+/// Settings → Display → App Icon (C52, D186): the seven home screen icons, all the treble clef drawn
 /// by `docs/art/make-icon.swift` on a different ground. Red left the choices in C54 (D192): it was
-/// too close to another app's icon; `make-icon.swift` can still draw it. Indigo is the primary icon (`AppIcon`); each
+/// too close to another app's icon; `make-icon.swift` can still draw it. White and Black, plain and flat,
+/// came in 1.0.1 (D235), and White became the primary icon (`AppIcon`; Indigo was until then); each
 /// other one is the alternate icon `AppIcon-<title>`, listed in the build setting
 /// `ASSETCATALOG_COMPILER_ALTERNATE_APPICON_NAMES`. Its own choice: nothing here touches the accent.
 nonisolated enum AppIconChoice: String, CaseIterable, Identifiable {
-    case indigo, violet, teal, amber, graphite
+    case white, black, indigo, violet, teal, amber, graphite
     var id: Self { self }
 
     /// The primary icon, which iOS shows when no alternate is set.
-    static let standard: Self = .indigo
+    static let standard: Self = .white
 
     var title: String { rawValue.capitalized }
 
